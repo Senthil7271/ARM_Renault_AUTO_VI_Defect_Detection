@@ -1,0 +1,37 @@
+{
+  "registry_version": "1.0",
+  "freeze_date": "2026-11-15T18:46:00Z",
+  "status": "FROZEN_IMMUTABLE",
+  "models": {
+    "pipe_staple": {
+      "status": "FROZEN",
+      "checkpoint_path": "C:\\Users\\linga\\Downloads\\ArmChallenge\\autovi_project\\outputs\\sagemaker_runs\\autovi-all-2026-11-15-06-03-24\\model\\pipe_staple\\patchcore_model.pkl",
+      "checkpoint_sha256": "69e9e12ceb7fa4cfb999945abb064bf2d588d1a78154cf8c5f070097311169b3",
+      "checkpoint_size_bytes": 53791406,
+      "metrics_sha256": "7495a16f76002d72dbc320b9237f3ac1d3048e4a8f84cc62375eac2ff0138063",
+      "calibrated_threshold": 17.28337688446045,
+      "target_fpr": 0.05,
+      "official_image_auroc": 0.9534
+    },
+    "underbody_pipes": {
+      "status": "FROZEN",
+      "checkpoint_path": "C:\\Users\\linga\\Downloads\\ArmChallenge\\autovi_project\\outputs\\sagemaker_runs\\autovi-all-2026-11-15-06-03-24\\model\\underbody_pipes\\patchcore_model.pkl",
+      "checkpoint_sha256": "59cd8dfd4fd11135f38fa17c6e9c2b20507689c8025023d10fb036271875dffd",
+      "checkpoint_size_bytes": 45294254,
+      "metrics_sha256": "0e5bbc74684c6ebe7d1d6ec643b53b504678194aadbaa8496f2652da5e682a7b",
+      "calibrated_threshold": 21.336994171142575,
+      "target_fpr": 0.05,
+      "official_image_auroc": 0.998
+    },
+    "underbody_screw": {
+      "status": "FROZEN",
+      "checkpoint_path": "C:\\Users\\linga\\Downloads\\ArmChallenge\\autovi_project\\outputs\\sagemaker_runs\\autovi-all-2026-11-15-06-03-24\\model\\underbody_screw\\patchcore_model.pkl",
+      "checkpoint_sha256": "231706b4c38bc279b988f78d9d20aa9e35799d22629b88b09727eaf7f5f012db",
+      "checkpoint_size_bytes": 105382574,
+      "metrics_sha256": "f5d92241e01be21de201cdca2860795e1a62fd3fe3da87c7eae648c2719458cb",
+      "calibrated_threshold": 14.44472885131836,
+      "target_fpr": 0.05,
+      "official_image_auroc": 0.9886
+    }
+  }
+}

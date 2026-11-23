@@ -1,0 +1,71 @@
+# AutoVI Product Categories Configuration
+# Each category is an independent inspection task with its own normal memory bank
+
+categories:
+  pipe_clip:
+    rel_path: "pipe_clip/pipe_clip"
+    description: "Brake pipe held by metallic clip"
+    expected_train_good: 195
+    expected_test_good: 195
+    known_defects:
+      - name: "unclipped"
+        pixel_value: 255
+      - name: "operator"
+        pixel_value: 254
+
+  engine_wiring:
+    rel_path: "engine_wiring/engine_wiring"
+    description: "Cables fastened in metallic clips and blue hoop positioning"
+    expected_train_good: 285
+    expected_test_good: 285
+    known_defects:
+      - name: "fastening"
+        pixel_value: 255
+      - name: "blue_hoop"
+        pixel_value: 254
+      - name: "cardboard"
+        pixel_value: 253
+      - name: "obstruction"
+        pixel_value: 252
+      - name: "multiple"
+        pixel_value: null
+
+  pipe_staple:
+    rel_path: "pipe_staple/pipe_staple"
+    description: "Black pipe held by metallic staple upper left of brake wheel"
+    expected_train_good: 191
+    expected_test_good: 188
+    known_defects:
+      - name: "missing"
+        pixel_value: 255
+
+  tank_screw:
+    rel_path: "tank_screw/tank_screw"
+    description: "White screw on nut through fuel tank hole"
+    expected_train_good: 318
+    expected_test_good: 318
+    known_defects:
+      - name: "missing"
+        pixel_value: 255
+
+  underbody_pipes:
+    rel_path: "underbody_pipes/underbody_pipes"
+    description: "Underbody pipes routing and proximity to platform"
+    expected_train_good: 161
+    expected_test_good: 161
+    known_defects:
+      - name: "obstruction"
+        pixel_value: 255
+      - name: "operator"
+        pixel_value: 254
+      - name: "multiple"
+        pixel_value: null
+
+  underbody_screw:
+    rel_path: "underbody_screw/underbody_screw"
+    description: "Two screws attached to metallic plate"
+    expected_train_good: 373
+    expected_test_good: 374
+    known_defects:
+      - name: "missing"
+        pixel_value: 255

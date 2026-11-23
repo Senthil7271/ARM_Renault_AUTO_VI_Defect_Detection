@@ -1,0 +1,22 @@
+# Hailo Dataflow Compiler (DFC) Model Script (.alls)
+# Model: WideResNet-50-2 PatchCore Feature Extractor
+# Target Hardware: Hailo-8 (26 TOPS, Raspberry Pi AI HAT+)
+# Compatible DFC: v3.28.0 / v3.29.0 / v5.x
+# Compatible HailoRT: v4.17.0 / v4.18.0
+
+# 1. Input Image Normalization:
+# Transform uint8 RGB [0, 255] directly in Hailo-8 NPU hardware:
+#   norm_x = (x - mean) / std
+# ImageNet statistics on 0..255 scale:
+#   mean = [0.485, 0.456, 0.406] * 255 = [123.675, 116.28, 103.53]
+#   std  = [0.229, 0.224, 0.225] * 255 = [58.395, 57.12, 57.375]
+normalization1 = normalization([123.675, 116.28, 103.53], [58.395, 57.12, 57.375])
+
+# 2. Optimization Flavor:
+# Optimization level 1 runs standard PTQ (equalization and bias correction)
+# using the 150-image normal training calibration set across all 6 AutoVI categories
+model_optimization_flavor(optimization_level=1, compression_level=0)
+
+# 3. Allocator Settings:
+# Allow up to 85% resource utilization to fit the 1536-channel concatenated feature map
+resources_param(max_utilization=0.85)

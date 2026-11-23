@@ -1,0 +1,1663 @@
+{
+  "total_images": 150,
+  "array_shape": [
+    150,
+    256,
+    256,
+    3
+  ],
+  "dtype": "uint8",
+  "source_provenance": "100% normal train/good training sets; zero test or defect exposure",
+  "samples": [
+    {
+      "category": "tank_screw",
+      "image_name": "0000.png",
+      "path": "tank_screw/tank_screw/train/good/0000.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0001.png",
+      "path": "tank_screw/tank_screw/train/good/0001.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0002.png",
+      "path": "tank_screw/tank_screw/train/good/0002.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0003.png",
+      "path": "tank_screw/tank_screw/train/good/0003.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0004.png",
+      "path": "tank_screw/tank_screw/train/good/0004.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0005.png",
+      "path": "tank_screw/tank_screw/train/good/0005.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0006.png",
+      "path": "tank_screw/tank_screw/train/good/0006.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0007.png",
+      "path": "tank_screw/tank_screw/train/good/0007.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0008.png",
+      "path": "tank_screw/tank_screw/train/good/0008.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0009.png",
+      "path": "tank_screw/tank_screw/train/good/0009.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0010.png",
+      "path": "tank_screw/tank_screw/train/good/0010.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0011.png",
+      "path": "tank_screw/tank_screw/train/good/0011.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0012.png",
+      "path": "tank_screw/tank_screw/train/good/0012.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0013.png",
+      "path": "tank_screw/tank_screw/train/good/0013.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0014.png",
+      "path": "tank_screw/tank_screw/train/good/0014.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0015.png",
+      "path": "tank_screw/tank_screw/train/good/0015.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0016.png",
+      "path": "tank_screw/tank_screw/train/good/0016.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0017.png",
+      "path": "tank_screw/tank_screw/train/good/0017.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0018.png",
+      "path": "tank_screw/tank_screw/train/good/0018.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0019.png",
+      "path": "tank_screw/tank_screw/train/good/0019.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0020.png",
+      "path": "tank_screw/tank_screw/train/good/0020.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0021.png",
+      "path": "tank_screw/tank_screw/train/good/0021.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0022.png",
+      "path": "tank_screw/tank_screw/train/good/0022.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0023.png",
+      "path": "tank_screw/tank_screw/train/good/0023.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "tank_screw",
+      "image_name": "0024.png",
+      "path": "tank_screw/tank_screw/train/good/0024.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0000.png",
+      "path": "pipe_clip/pipe_clip/train/good/0000.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0001.png",
+      "path": "pipe_clip/pipe_clip/train/good/0001.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0002.png",
+      "path": "pipe_clip/pipe_clip/train/good/0002.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0003.png",
+      "path": "pipe_clip/pipe_clip/train/good/0003.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0004.png",
+      "path": "pipe_clip/pipe_clip/train/good/0004.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0005.png",
+      "path": "pipe_clip/pipe_clip/train/good/0005.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0006.png",
+      "path": "pipe_clip/pipe_clip/train/good/0006.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0007.png",
+      "path": "pipe_clip/pipe_clip/train/good/0007.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0008.png",
+      "path": "pipe_clip/pipe_clip/train/good/0008.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0009.png",
+      "path": "pipe_clip/pipe_clip/train/good/0009.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0010.png",
+      "path": "pipe_clip/pipe_clip/train/good/0010.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0011.png",
+      "path": "pipe_clip/pipe_clip/train/good/0011.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0012.png",
+      "path": "pipe_clip/pipe_clip/train/good/0012.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0013.png",
+      "path": "pipe_clip/pipe_clip/train/good/0013.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0014.png",
+      "path": "pipe_clip/pipe_clip/train/good/0014.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0015.png",
+      "path": "pipe_clip/pipe_clip/train/good/0015.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0016.png",
+      "path": "pipe_clip/pipe_clip/train/good/0016.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0017.png",
+      "path": "pipe_clip/pipe_clip/train/good/0017.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0018.png",
+      "path": "pipe_clip/pipe_clip/train/good/0018.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0019.png",
+      "path": "pipe_clip/pipe_clip/train/good/0019.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0020.png",
+      "path": "pipe_clip/pipe_clip/train/good/0020.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0021.png",
+      "path": "pipe_clip/pipe_clip/train/good/0021.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0022.png",
+      "path": "pipe_clip/pipe_clip/train/good/0022.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0023.png",
+      "path": "pipe_clip/pipe_clip/train/good/0023.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_clip",
+      "image_name": "0024.png",
+      "path": "pipe_clip/pipe_clip/train/good/0024.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0000.png",
+      "path": "engine_wiring/engine_wiring/train/good/0000.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0001.png",
+      "path": "engine_wiring/engine_wiring/train/good/0001.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0002.png",
+      "path": "engine_wiring/engine_wiring/train/good/0002.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0003.png",
+      "path": "engine_wiring/engine_wiring/train/good/0003.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0004.png",
+      "path": "engine_wiring/engine_wiring/train/good/0004.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0005.png",
+      "path": "engine_wiring/engine_wiring/train/good/0005.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0006.png",
+      "path": "engine_wiring/engine_wiring/train/good/0006.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0007.png",
+      "path": "engine_wiring/engine_wiring/train/good/0007.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0008.png",
+      "path": "engine_wiring/engine_wiring/train/good/0008.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0009.png",
+      "path": "engine_wiring/engine_wiring/train/good/0009.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0010.png",
+      "path": "engine_wiring/engine_wiring/train/good/0010.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0011.png",
+      "path": "engine_wiring/engine_wiring/train/good/0011.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0012.png",
+      "path": "engine_wiring/engine_wiring/train/good/0012.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0013.png",
+      "path": "engine_wiring/engine_wiring/train/good/0013.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0014.png",
+      "path": "engine_wiring/engine_wiring/train/good/0014.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0015.png",
+      "path": "engine_wiring/engine_wiring/train/good/0015.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0016.png",
+      "path": "engine_wiring/engine_wiring/train/good/0016.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0017.png",
+      "path": "engine_wiring/engine_wiring/train/good/0017.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0018.png",
+      "path": "engine_wiring/engine_wiring/train/good/0018.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0019.png",
+      "path": "engine_wiring/engine_wiring/train/good/0019.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0020.png",
+      "path": "engine_wiring/engine_wiring/train/good/0020.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0021.png",
+      "path": "engine_wiring/engine_wiring/train/good/0021.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0022.png",
+      "path": "engine_wiring/engine_wiring/train/good/0022.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0023.png",
+      "path": "engine_wiring/engine_wiring/train/good/0023.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "engine_wiring",
+      "image_name": "0024.png",
+      "path": "engine_wiring/engine_wiring/train/good/0024.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0000.png",
+      "path": "pipe_staple/pipe_staple/train/good/0000.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0001.png",
+      "path": "pipe_staple/pipe_staple/train/good/0001.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0002.png",
+      "path": "pipe_staple/pipe_staple/train/good/0002.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0003.png",
+      "path": "pipe_staple/pipe_staple/train/good/0003.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0004.png",
+      "path": "pipe_staple/pipe_staple/train/good/0004.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0005.png",
+      "path": "pipe_staple/pipe_staple/train/good/0005.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0006.png",
+      "path": "pipe_staple/pipe_staple/train/good/0006.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0007.png",
+      "path": "pipe_staple/pipe_staple/train/good/0007.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0008.png",
+      "path": "pipe_staple/pipe_staple/train/good/0008.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0009.png",
+      "path": "pipe_staple/pipe_staple/train/good/0009.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0010.png",
+      "path": "pipe_staple/pipe_staple/train/good/0010.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0011.png",
+      "path": "pipe_staple/pipe_staple/train/good/0011.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0012.png",
+      "path": "pipe_staple/pipe_staple/train/good/0012.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0013.png",
+      "path": "pipe_staple/pipe_staple/train/good/0013.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0014.png",
+      "path": "pipe_staple/pipe_staple/train/good/0014.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0015.png",
+      "path": "pipe_staple/pipe_staple/train/good/0015.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0016.png",
+      "path": "pipe_staple/pipe_staple/train/good/0016.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0017.png",
+      "path": "pipe_staple/pipe_staple/train/good/0017.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0018.png",
+      "path": "pipe_staple/pipe_staple/train/good/0018.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0019.png",
+      "path": "pipe_staple/pipe_staple/train/good/0019.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0020.png",
+      "path": "pipe_staple/pipe_staple/train/good/0020.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0021.png",
+      "path": "pipe_staple/pipe_staple/train/good/0021.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0022.png",
+      "path": "pipe_staple/pipe_staple/train/good/0022.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0023.png",
+      "path": "pipe_staple/pipe_staple/train/good/0023.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "pipe_staple",
+      "image_name": "0024.png",
+      "path": "pipe_staple/pipe_staple/train/good/0024.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0000.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0000.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0001.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0001.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0002.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0002.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0003.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0003.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0004.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0004.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0005.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0005.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0006.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0006.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0007.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0007.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0008.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0008.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0009.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0009.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0010.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0010.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0011.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0011.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0012.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0012.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0013.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0013.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0014.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0014.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0015.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0015.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0016.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0016.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0017.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0017.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0018.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0018.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0019.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0019.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0020.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0020.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0021.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0021.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0022.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0022.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0023.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0023.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_pipes",
+      "image_name": "0024.png",
+      "path": "underbody_pipes/underbody_pipes/train/good/0024.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0000.png",
+      "path": "underbody_screw/underbody_screw/train/good/0000.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0001.png",
+      "path": "underbody_screw/underbody_screw/train/good/0001.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0002.png",
+      "path": "underbody_screw/underbody_screw/train/good/0002.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0003.png",
+      "path": "underbody_screw/underbody_screw/train/good/0003.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0004.png",
+      "path": "underbody_screw/underbody_screw/train/good/0004.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0005.png",
+      "path": "underbody_screw/underbody_screw/train/good/0005.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0006.png",
+      "path": "underbody_screw/underbody_screw/train/good/0006.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0007.png",
+      "path": "underbody_screw/underbody_screw/train/good/0007.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0008.png",
+      "path": "underbody_screw/underbody_screw/train/good/0008.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0009.png",
+      "path": "underbody_screw/underbody_screw/train/good/0009.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0010.png",
+      "path": "underbody_screw/underbody_screw/train/good/0010.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0011.png",
+      "path": "underbody_screw/underbody_screw/train/good/0011.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0012.png",
+      "path": "underbody_screw/underbody_screw/train/good/0012.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0013.png",
+      "path": "underbody_screw/underbody_screw/train/good/0013.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0014.png",
+      "path": "underbody_screw/underbody_screw/train/good/0014.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0015.png",
+      "path": "underbody_screw/underbody_screw/train/good/0015.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0016.png",
+      "path": "underbody_screw/underbody_screw/train/good/0016.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0017.png",
+      "path": "underbody_screw/underbody_screw/train/good/0017.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0018.png",
+      "path": "underbody_screw/underbody_screw/train/good/0018.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0019.png",
+      "path": "underbody_screw/underbody_screw/train/good/0019.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0020.png",
+      "path": "underbody_screw/underbody_screw/train/good/0020.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0021.png",
+      "path": "underbody_screw/underbody_screw/train/good/0021.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0022.png",
+      "path": "underbody_screw/underbody_screw/train/good/0022.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0023.png",
+      "path": "underbody_screw/underbody_screw/train/good/0023.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    },
+    {
+      "category": "underbody_screw",
+      "image_name": "0024.png",
+      "path": "underbody_screw/underbody_screw/train/good/0024.png",
+      "shape": [
+        256,
+        256,
+        3
+      ],
+      "dtype": "uint8"
+    }
+  ]
+}

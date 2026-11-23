@@ -1,0 +1,31 @@
+# SageMaker GPU Training Configuration for AutoVI PatchCore
+
+aws:
+  region: "us-east-1"
+  profile: "autovi"
+  s3_bucket: "sagemaker-us-east-1-077578771161"
+  s3_data_prefix: "autovi"
+  s3_output_prefix: "autovi/outputs"
+  s3_deployment_prefix: "autovi/deployment"
+
+sagemaker:
+  # Official AWS Deep Learning Container for PyTorch GPU in us-east-1
+  # PyTorch 2.1.0 with CUDA 12.1 and Python 3.10
+  image_uri: "763104351884.dkr.ecr.us-east-1.amazonaws.com/pytorch-training:2.1.0-gpu-py310-cu121-ubuntu20.04-sagemaker"
+  instance_type: "ml.g4dn.xlarge"
+  instance_count: 1
+  volume_size_gb: 50
+  max_run_seconds: 7200
+  base_job_name: "autovi-patchcore-gpu"
+  # Default SageMaker Execution Role (configured for user)
+  role_arn: "arn:aws:iam::077578771161:role/service-role/AmazonSageMaker-ExecutionRole-20261115T084659"
+
+training:
+  category: "pipe_clip"
+  coreset_ratio: 0.05
+  chunk_size: 8192
+  batch_size: 16
+  num_workers: 2
+  device: "cuda"
+  target_fpr: 0.05
+  visualize_count: 8

@@ -1,0 +1,34 @@
+{
+    "category": "engine_wiring",
+    "total_official_test_samples": 607,
+    "official_normal_samples_count": 285,
+    "official_defective_samples_count": 322,
+    "official_comparison_pairs": 91770,
+    "unique_contaminated_test_normal_samples": 60,
+    "unique_duplicate_train_test_hash_pairs": 60,
+    "clean_test_samples_count": 547,
+    "clean_normal_samples_count": 225,
+    "clean_defective_samples_count": 322,
+    "clean_comparison_pairs": 72450,
+    "full_split_binary_image_auroc": 0.8043914133158984,
+    "clean_split_binary_image_auroc": 0.7564389233954453,
+    "binary_auroc_delta": -0.04795248992045309,
+    "official_one_vs_rest_mean_auroc": 0.8898,
+    "clean_one_vs_rest_mean_auroc": 0.8600274222368085,
+    "one_vs_rest_mean_auroc_delta": -0.029772577763191532,
+    "clean_subtype_aurocs": {
+        "blue_hoop": 0.8133333333333332,
+        "cardboard": 1.0,
+        "fastening": 0.7278138788608103,
+        "multiple": 0.9478787878787879,
+        "obstruction": 0.8111111111111111
+    },
+    "score_statistics": {
+        "leaked_normal_mean": 16.916713333129884,
+        "leaked_normal_std": 0.9192713909693653,
+        "clean_normal_mean": 20.185820702446833,
+        "clean_normal_std": 0.9334919287946453,
+        "defective_mean": 21.364492440075608,
+        "defective_std": 1.7109431958022705
+    }
+}

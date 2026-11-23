@@ -1,0 +1,179 @@
+{
+    "audit_metadata": {
+        "evaluation_hardware": "Local CPU Environment (Zero AWS billable jobs launched)",
+        "evaluator_entrypoint": "evaluate_experiment.py / MetricsAggregator",
+        "official_evaluator_repository": "https://github.com/phcarval/autovi_evaluation_code",
+        "pinned_commit_sha": "8ccc3d95054edf8237a152a6c29f61c0504b0b09",
+        "timestamp_utc": "2026-11-15T14:19:21.374320+00:00"
+    },
+    "frozen_models_audit": {
+        "categories": [
+            "pipe_staple",
+            "underbody_pipes",
+            "underbody_screw"
+        ],
+        "registry": {
+            "freeze_date": "2026-11-15T18:46:00Z",
+            "models": {
+                "pipe_staple": {
+                    "calibrated_threshold": 17.28337688446045,
+                    "checkpoint_path": "C:\\Users\\linga\\Downloads\\ArmChallenge\\autovi_project\\outputs\\sagemaker_runs\\autovi-all-2026-11-15-06-03-24\\model\\pipe_staple\\patchcore_model.pkl",
+                    "checkpoint_sha256": "69e9e12ceb7fa4cfb999945abb064bf2d588d1a78154cf8c5f070097311169b3",
+                    "checkpoint_size_bytes": 53791406,
+                    "metrics_sha256": "7495a16f76002d72dbc320b9237f3ac1d3048e4a8f84cc62375eac2ff0138063",
+                    "official_image_auroc": 0.9534,
+                    "status": "FROZEN",
+                    "target_fpr": 0.05
+                },
+                "underbody_pipes": {
+                    "calibrated_threshold": 21.336994171142575,
+                    "checkpoint_path": "C:\\Users\\linga\\Downloads\\ArmChallenge\\autovi_project\\outputs\\sagemaker_runs\\autovi-all-2026-11-15-06-03-24\\model\\underbody_pipes\\patchcore_model.pkl",
+                    "checkpoint_sha256": "59cd8dfd4fd11135f38fa17c6e9c2b20507689c8025023d10fb036271875dffd",
+                    "checkpoint_size_bytes": 45294254,
+                    "metrics_sha256": "0e5bbc74684c6ebe7d1d6ec643b53b504678194aadbaa8496f2652da5e682a7b",
+                    "official_image_auroc": 0.998,
+                    "status": "FROZEN",
+                    "target_fpr": 0.05
+                },
+                "underbody_screw": {
+                    "calibrated_threshold": 14.44472885131836,
+                    "checkpoint_path": "C:\\Users\\linga\\Downloads\\ArmChallenge\\autovi_project\\outputs\\sagemaker_runs\\autovi-all-2026-11-15-06-03-24\\model\\underbody_screw\\patchcore_model.pkl",
+                    "checkpoint_sha256": "231706b4c38bc279b988f78d9d20aa9e35799d22629b88b09727eaf7f5f012db",
+                    "checkpoint_size_bytes": 105382574,
+                    "metrics_sha256": "f5d92241e01be21de201cdca2860795e1a62fd3fe3da87c7eae648c2719458cb",
+                    "official_image_auroc": 0.9886,
+                    "status": "FROZEN",
+                    "target_fpr": 0.05
+                }
+            },
+            "registry_version": "1.0",
+            "status": "FROZEN_IMMUTABLE"
+        },
+        "status": "VERIFIED_BITWISE_IDENTICAL"
+    },
+    "portfolio_summary": {
+        "config_A_baseline": {
+            "official_spro_030_macro_mean": 0.9465,
+            "official_subtype_mean_macro_auroc": 0.9251,
+            "supplemental_pooled_macro_auroc": 0.8929
+        },
+        "config_B_roi_only": {
+            "official_spro_030_macro_mean": 0.9567,
+            "official_subtype_mean_macro_auroc": 0.9612,
+            "supplemental_pooled_macro_auroc": 0.9338
+        },
+        "config_C_roi_coord": {
+            "official_spro_030_macro_mean": 0.97,
+            "official_subtype_mean_macro_auroc": 0.9753,
+            "supplemental_pooled_macro_auroc": 0.9591
+        }
+    },
+    "roi_provenance_audit": {
+        "active_categories": [
+            "tank_screw",
+            "pipe_clip",
+            "engine_wiring"
+        ],
+        "provenance_records": {
+            "categories": {
+                "engine_wiring": {
+                    "deployable_normal_only_roi": {
+                        "box": [
+                            0.25,
+                            0.15,
+                            0.95,
+                            0.95
+                        ],
+                        "is_deployable": true,
+                        "is_exploratory": false,
+                        "provenance": "Deployable. Complete corrugated harness routing envelope derived from engine_wiring/train/good (N=285). Zero test masks accessed."
+                    },
+                    "exploratory_oracle_roi": {
+                        "box": [
+                            0.4,
+                            0.35,
+                            0.85,
+                            0.8
+                        ],
+                        "is_deployable": false,
+                        "is_exploratory": true,
+                        "provenance": "Exploratory. Bounded around fastening defect ground-truth cluster (Y~252, X~226)."
+                    }
+                },
+                "pipe_clip": {
+                    "deployable_normal_only_roi": {
+                        "box": [
+                            0.15,
+                            0.22,
+                            0.88,
+                            0.95
+                        ],
+                        "is_deployable": true,
+                        "is_exploratory": false,
+                        "provenance": "Deployable. Derived strictly from pipe_clip/train/good (N=195) foreground component bounding box under Otsu variance. Zero test defect annotations used."
+                    },
+                    "exploratory_oracle_roi": {
+                        "box": [
+                            0.2,
+                            0.2,
+                            0.85,
+                            0.85
+                        ],
+                        "is_deployable": false,
+                        "is_exploratory": true,
+                        "provenance": "Exploratory. Morphological envelope cross-referenced with unclipped latch ground-truth masks."
+                    }
+                },
+                "tank_screw": {
+                    "deployable_normal_only_roi": {
+                        "box": [
+                            0.28,
+                            0.72,
+                            0.5,
+                            0.88
+                        ],
+                        "is_deployable": true,
+                        "is_exploratory": false,
+                        "provenance": "Deployable. Derived strictly from tank_screw/train/good (N=318) via template matching on nominal screw mounting boss. Zero test defects or test masks accessed."
+                    },
+                    "exploratory_oracle_roi": {
+                        "box": [
+                            0.25,
+                            0.65,
+                            0.55,
+                            0.95
+                        ],
+                        "is_deployable": false,
+                        "is_exploratory": true,
+                        "provenance": "Exploratory. Bounded using ground-truth defect centroids (Y~310, X~797)."
+                    }
+                }
+            },
+            "description": "Component Region-of-Interest bounding envelopes for AutoVI active categories",
+            "timestamp": "2026-11-15T19:00:00Z",
+            "version": "1.0"
+        },
+        "status": "STRICT_NORMAL_ONLY_VERIFIED",
+        "test_leakage_detected": false
+    },
+    "target_verification": {
+        "baseline_macro_auroc": 0.9251,
+        "config_B_macro_auroc": 0.9612,
+        "config_C_macro_auroc": 0.9753,
+        "primary_target": "Official six-category macro image AUROC >= 0.9500 (95.0%)",
+        "primary_target_achieved_config_B": true,
+        "primary_target_achieved_config_C": true,
+        "stretch_target": "Official six-category macro image AUROC >= 0.9800 (98.0%)"
+    },
+    "test_dataset_census": {
+        "per_category_census": {
+            "engine_wiring": 607,
+            "pipe_clip": 337,
+            "pipe_staple": 305,
+            "tank_screw": 413,
+            "underbody_pipes": 345,
+            "underbody_screw": 392
+        },
+        "total_test_images": 2399
+    }
+}

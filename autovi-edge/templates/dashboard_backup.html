@@ -1,0 +1,2042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoVI Edge Lab — Industrial Vision AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        :root {
+            --bg-base: #f1f5f9;
+            --bg-card: #ffffff;
+            --sidebar-bg: #0f172a;
+            --sidebar-hover: #1e293b;
+            --sidebar-active: #2563eb;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --primary-blue: #2563eb;
+            --border-color: #e2e8f0;
+            --danger-red: #ef4444;
+            --success-green: #10b981;
+            --warning-amber: #f59e0b;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            height: 100vh;
+            display: flex;
+            overflow: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: var(--sidebar-bg);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            padding: 24px 16px;
+            flex-shrink: 0;
+        }
+
+        .brand-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #1e293b;
+            margin-bottom: 24px;
+        }
+
+        .brand-icon {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+        }
+
+        .brand-icon svg { width: 22px; height: 22px; }
+
+        .brand-text h1 {
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: #f8fafc;
+        }
+
+        .brand-text p {
+            font-size: 11px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex-grow: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 11px 14px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: var(--radius-md);
+            transition: all 0.15s ease;
+            cursor: pointer;
+        }
+
+        .nav-item svg {
+            width: 18px;
+            height: 18px;
+            color: #94a3b8;
+            transition: color 0.15s ease;
+        }
+
+        .nav-item:hover {
+            background-color: var(--sidebar-hover);
+            color: #ffffff;
+        }
+
+        .nav-item:hover svg {
+            color: #ffffff;
+        }
+
+        .nav-item.active {
+            background-color: var(--sidebar-active);
+            color: #ffffff;
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        }
+
+        .nav-item.active svg {
+            color: #ffffff;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            padding: 14px;
+            background-color: #0b1120;
+            border-radius: var(--radius-md);
+            font-size: 11px;
+            color: #94a3b8;
+            border: 1px solid #1e293b;
+        }
+
+        .sidebar-footer .about-title {
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex-grow: 1;
+            padding: 22px 30px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Top Header */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .header-title h2 {
+            font-size: 21px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .header-title p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 2px;
+        }
+
+        .device-badges {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge-pill {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 9999px;
+            padding: 6px 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 500;
+            color: #334155;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .badge-online {
+            color: var(--success-green);
+            background: #ffffff;
+            border-color: #bbf7d0;
+            font-weight: 600;
+        }
+
+        .online-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--success-green);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
+            animation: pulse-green 2s infinite;
+        }
+
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 18px 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .card-header-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* KPI Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+            margin-bottom: 4px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 14px 16px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.15s, border-color 0.15s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-2px);
+            border-color: #93c5fd;
+        }
+
+        .stat-card span.stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .stat-card strong.stat-val {
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-primary);
+            margin-top: 4px;
+        }
+
+        .stat-card .stat-sub {
+            font-size: 10px;
+            color: #94a3b8;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        /* Controls Bar */
+        .controls-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            padding: 12px 16px;
+            background: #f8fafc;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-color);
+            margin-bottom: 16px;
+        }
+
+        .category-select-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        select.category-dropdown {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 7px 12px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #334155;
+            outline: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+        }
+
+        select.category-dropdown:focus {
+            border-color: var(--primary-blue);
+        }
+
+        .filter-pill {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .filter-pill:hover {
+            border-color: #94a3b8;
+            color: #1e293b;
+        }
+
+        .filter-pill.active {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #2563eb;
+        }
+
+        .btn-action {
+            background: var(--primary-blue);
+            color: #ffffff;
+            border: none;
+            border-radius: var(--radius-md);
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+            transition: background 0.15s;
+        }
+
+        .btn-action:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-action:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .btn-secondary {
+            background: #ffffff;
+            color: #334155;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            background: #f1f5f9;
+        }
+
+        /* Tri-View Grid (Input, Heatmap, Error Map) */
+        .tri-view-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+
+        .image-frame-container {
+            position: relative;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .image-frame-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .image-badge-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            letter-spacing: 0.02em;
+            z-index: 5;
+        }
+
+        .metric-badge-corner {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(4px);
+            color: #f8fafc;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            z-index: 5;
+        }
+
+        .colorbar-legend {
+            position: absolute;
+            right: 10px;
+            top: 42px;
+            bottom: 42px;
+            width: 14px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4px 0;
+            z-index: 5;
+        }
+
+        .colorbar-gradient {
+            flex-grow: 1;
+            width: 6px;
+            border-radius: 2px;
+            background: linear-gradient(to bottom, #7f0000, #ff0000, #ffff00, #00ffff, #00007f);
+            margin: 4px 0;
+        }
+
+        .colorbar-legend span {
+            font-size: 8px;
+            font-family: 'JetBrains Mono', monospace;
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+
+        /* Verdict Footer Row */
+        .verdict-banner-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 12px 18px;
+            gap: 16px;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        .verdict-status-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 7px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .verdict-status-pill.pass {
+            background-color: #dcfce7;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+        }
+
+        .verdict-status-pill.defect {
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+        }
+
+        .metric-cell {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .metric-cell span {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        .metric-cell strong {
+            font-size: 14px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-primary);
+        }
+
+        /* Llama 3.2 ExecuTorch Copilot Card */
+        .ai-explanation-box {
+            background: #ffffff;
+            border: 1px solid #c7d2fe;
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.08);
+        }
+
+        .ai-explanation-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #e0e7ff;
+        }
+
+        .ai-header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ai-header-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e1b4b;
+            letter-spacing: -0.01em;
+        }
+
+        .ai-header-sub {
+            font-size: 11px;
+            color: #6366f1;
+            font-weight: 600;
+        }
+
+        .ai-header-badges {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ai-model-tag {
+            background: #eef2ff;
+            color: #4338ca;
+            border: 1px solid #c7d2fe;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .ai-explanation-text {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #1e293b;
+            font-weight: 400;
+            white-space: pre-line;
+        }
+
+        /* Visual Charts View */
+        .visual-charts-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            min-height: 440px;
+        }
+
+        .chart-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .chart-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .chart-toggle-3d {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 32px;
+            height: 18px;
+        }
+
+        .switch input { opacity: 0; width: 0; height: 0; }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #cbd5e1;
+            transition: .2s;
+            border-radius: 18px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 12px;
+            width: 12px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .2s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider { background-color: var(--primary-blue); }
+        input:checked + .slider:before { transform: translateX(14px); }
+
+        .chart-viewport {
+            flex-grow: 1;
+            width: 100%;
+            height: 380px;
+        }
+
+        /* System Health Grid */
+        .health-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .health-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .health-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .health-card-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .health-card-title svg {
+            width: 18px;
+            height: 18px;
+            color: var(--primary-blue);
+        }
+
+        .health-card-metric {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .health-card-metric .big-num {
+            font-size: 28px;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            color: #0f172a;
+        }
+
+        .health-card-metric .unit {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .health-bar-bg {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .health-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+
+        .health-meta-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #64748b;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 8px;
+        }
+
+        .health-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            border-radius: 9999px;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .health-badge.ok {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .health-badge.info {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
+        /* Stress Test Controls */
+        .stress-controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            padding: 16px;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            margin-bottom: 16px;
+        }
+
+        .slider-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .slider-label-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .slider-label-row span.val-badge {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--primary-blue);
+        }
+
+        .slider-input {
+            width: 100%;
+            accent-color: var(--primary-blue);
+            cursor: pointer;
+        }
+
+        .preset-buttons-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .preset-btn {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            transition: all 0.15s;
+        }
+
+        .preset-btn:hover {
+            border-color: var(--primary-blue);
+            color: var(--primary-blue);
+        }
+
+        /* Gallery Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border-radius: var(--radius-lg);
+            width: 100%;
+            max-width: 900px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .modal-header {
+            padding: 16px 24px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8fafc;
+        }
+
+        .modal-body {
+            padding: 20px 24px;
+            overflow-y: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+        }
+
+        .gallery-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: #f8fafc;
+            cursor: pointer;
+            transition: transform 0.1s, border-color 0.1s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-blue);
+        }
+
+        .gallery-card img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            background: #e2e8f0;
+        }
+
+        .gallery-card-footer {
+            padding: 6px 8px;
+            font-size: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            background: #ffffff;
+        }
+
+        .gallery-badge {
+            display: inline-block;
+            font-size: 8px;
+            font-weight: 700;
+            padding: 1px 5px;
+            border-radius: 3px;
+            text-transform: uppercase;
+            align-self: flex-start;
+        }
+
+        .gallery-badge.nominal { background: #dcfce7; color: #15803d; }
+        .gallery-badge.defect { background: #fee2e2; color: #b91c1c; }
+    </style>
+</head>
+<body>
+
+    <!-- Left Navigation Sidebar -->
+    <aside class="sidebar">
+        <div class="brand-header">
+            <div class="brand-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+            </div>
+            <div class="brand-text">
+                <h1>AutoVI Edge Lab</h1>
+                <p>Industrial Vision AI</p>
+            </div>
+        </div>
+
+        <ul class="nav-list">
+            <li>
+                <a class="nav-item active" id="nav-inspection" onclick="showView('inspection')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                    <span>Live Inspection</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-item" id="nav-analytics" onclick="showView('analytics')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                    <span>Analytics & 3D Graphs</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-item" id="nav-stress" onclick="showView('stress')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    <span>Stress-Test Lab</span>
+                </a>
+            </li>
+            <li>
+                <a class="nav-item" id="nav-health" onclick="showView('health')">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                    <span>System Health</span>
+                </a>
+            </li>
+        </ul>
+
+        <div class="sidebar-footer">
+            <div class="about-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                Active Hardware
+            </div>
+            Hailo-8 NPU (26 TOPS) + ExecuTorch (Llama-3.2-1B) + ST7735 TFT Screen.
+        </div>
+    </aside>
+
+    <!-- Main Viewport -->
+    <main class="main-content">
+        <!-- Top Status Bar -->
+        <header class="top-header">
+            <div class="header-title">
+                <h2 id="page-title">AutoVI Industrial Inspection Lab</h2>
+                <p id="page-subtitle">Spatial Anomaly Detection, Real-Time Heatmap Localization & Hardware Diagnostics</p>
+            </div>
+            <div class="device-badges">
+                <div class="badge-pill">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                    <span>ARM Cortex-A76 (16 GB)</span>
+                </div>
+                <div class="badge-pill">
+                    <span style="color:#0284c7; font-weight:700;">H</span>
+                    <span>Hailo AI HAT+ (26 TOPS)</span>
+                </div>
+                <div class="badge-pill">
+                    <span style="color:#10b981; font-weight:700;">📺</span>
+                    <span>ST7735 1.8" TFT (RGB)</span>
+                </div>
+                <div class="badge-pill badge-online">
+                    <span class="online-dot"></span>
+                    <span>Online</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- ========================================== -->
+        <!-- VIEW 1: LIVE INSPECTION (DEFAULT VIEW)     -->
+        <!-- ========================================== -->
+        <div id="view-section-inspection" class="view-panel">
+            <!-- 4 Performance Stats KPI (Accurate Contest Metrics) -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Pixel AUROC</span>
+                    <strong class="stat-val" id="stat-pixel-auroc">0.9724</strong>
+                    <span class="stat-sub">Localization Precision</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Pixel AUPRO</span>
+                    <strong class="stat-val" id="stat-pixel-aupro">0.9152</strong>
+                    <span class="stat-sub">Defect Boundary Metric</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Image AUROC</span>
+                    <strong class="stat-val" id="stat-image-auroc">0.7515</strong>
+                    <span class="stat-sub">Sample Classification</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Hailo-8 Latency</span>
+                    <strong class="stat-val" id="stat-latency" style="color:#0284c7;">7.98 ms</strong>
+                    <span class="stat-sub">Edge NPU Inference</span>
+                </div>
+            </div>
+
+            <section class="card" style="margin-top:16px;">
+                <!-- Controls Bar -->
+                <div class="controls-bar">
+                    <div class="category-select-group">
+                        <label for="category-dropdown" style="font-size:12px; font-weight:600; color:#475569;">Category:</label>
+                        <select id="category-dropdown" class="category-dropdown" onchange="onCategoryChange()">
+                            <option value="pipe_clip" selected>pipe_clip (337)</option>
+                            <option value="pipe_staple">pipe_staple (305)</option>
+                            <option value="engine_wiring">engine_wiring (607)</option>
+                            <option value="tank_screw">tank_screw (413)</option>
+                            <option value="underbody_pipes">underbody_pipes (345)</option>
+                            <option value="underbody_screw">underbody_screw (392)</option>
+                        </select>
+
+                        <div style="display:flex; gap:6px; margin-left:8px;">
+                            <button class="filter-pill active" data-filter="ALL" onclick="filterDatasetImages('ALL')">All</button>
+                            <button class="filter-pill" data-filter="DEFECT" onclick="filterDatasetImages('DEFECT')">Defects</button>
+                            <button class="filter-pill" data-filter="GOOD" onclick="filterDatasetImages('GOOD')">Nominal</button>
+                        </div>
+                    </div>
+
+                    <div style="display:flex; align-items:center; gap:10px; flex:1; justify-content:flex-end;">
+                        <select id="dataset-file-dropdown" class="category-dropdown" style="max-width:320px; font-family:'JetBrains Mono', monospace; font-size:11px;" onchange="onFileSelected()">
+                            <!-- Dynamically populated -->
+                        </select>
+                        <button class="btn-action btn-secondary" onclick="openGalleryModal()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                            <span>Dataset Gallery</span>
+                        </button>
+                        <button class="btn-action" id="btn-run-dataset" onclick="triggerInspection()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            <span>Run Hailo Inference</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card-header-label">
+                    <span>Spatial Localization Tri-View (Automotive DSMBAD Standard)</span>
+                    <span id="loc-match-badge" style="font-size:11px; background:#e0f2fe; color:#0369a1; padding:2px 8px; border-radius:4px; font-weight:600;">IoU: 0.00 | Dice: 0.00</span>
+                </div>
+
+                <!-- Tri-View Grid (Input Image, Predicted Heatmap, Error Map) -->
+                <div class="tri-view-grid">
+                    <!-- Panel 1: Input Test Image -->
+                    <div class="image-frame-container">
+                        <span class="image-badge-label" id="label-input">1. Input Image</span>
+                        <img id="view-input-img" src="/static/sample_input.jpg" alt="Input Image">
+                    </div>
+
+                    <!-- Panel 2: Predicted Anomaly Heatmap -->
+                    <div class="image-frame-container">
+                        <span class="image-badge-label" style="background:rgba(30, 58, 138, 0.9);">2. Predicted Anomaly Heatmap</span>
+                        <img id="view-heatmap-img" src="/static/sample_heatmap.jpg" alt="Predicted Anomaly Map">
+                        <div class="colorbar-legend">
+                            <span>1.0</span>
+                            <div class="colorbar-gradient"></div>
+                            <span>0.0</span>
+                        </div>
+                    </div>
+
+                    <!-- Panel 3: Localization Error Map -->
+                    <div class="image-frame-container">
+                        <span class="image-badge-label" style="background:rgba(124, 58, 237, 0.9);">3. Localization Error Map</span>
+                        <img id="view-error-img" src="/static/sample_error_map.jpg" alt="Segmentation Overlap Error Map">
+                        <span class="metric-badge-corner" id="badge-overlap-iou">IoU: 0.00</span>
+                    </div>
+                </div>
+
+                <!-- Verdict Footer Row -->
+                <div class="verdict-banner-row">
+                    <div class="verdict-status-pill defect" id="verdict-pill">
+                        <span id="verdict-icon">⚠️</span>
+                        <span id="verdict-text">Anomaly Detected (REJECT)</span>
+                    </div>
+                    <div class="metric-cell">
+                        <span>Anomaly Score / Threshold</span>
+                        <strong><span id="val-anomaly-score">20.04</span> <span style="color:#94a3b8; font-weight:400;">/</span> <span id="val-threshold" style="color:#64748b;">16.75</span></strong>
+                    </div>
+                    <div class="metric-cell">
+                        <span>Hardware Latency</span>
+                        <strong id="val-latency">7.98 ms (Hailo-8)</strong>
+                    </div>
+                    <div class="metric-cell">
+                        <span>Physical Screen Sync</span>
+                        <strong id="val-tft-sync" style="color:#10b981;">ST7735: Synchronized</strong>
+                    </div>
+                </div>
+
+                <!-- Llama 3.2 ExecuTorch Reasoning Copilot Card -->
+                <div class="ai-explanation-box">
+                    <div class="ai-explanation-header">
+                        <div class="ai-header-left">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4f46e5" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                            <div>
+                                <span class="ai-header-title">Llama 3.2 Reasoning Copilot</span>
+                                <span class="ai-header-sub"> • Meta ExecuTorch • Arm NEON Edge</span>
+                            </div>
+                        </div>
+                        <div class="ai-header-badges">
+                            <span class="ai-model-tag">1B-Instruct</span>
+                            <span class="ai-model-tag" style="background:#f0fdf4; color:#15803d; border-color:#bbf7d0;">4-bit XNNPACK</span>
+                        </div>
+                    </div>
+                    <div class="ai-explanation-text" id="val-ai-explanation">
+                        <strong>1. Root-Cause Analysis (RCA)</strong>: Anomaly detected on pipe_clip. Localized spatial heatmap highlights unclipped retaining latch or surface indentation on mounting cradle.
+
+                        <strong>2. Technician SOP Remediation</strong>: Reseat tube into clamp cradle groove. Depress dual-interlock retaining clip until tactile click. Perform 5 N tension test to verify zero lateral play.
+
+                        <strong>3. Quality Gate Disposition</strong>: <span style="color:#b91c1c; font-weight:700;">[REJECT - REWORK REQUIRED: CLAMP CRADLE REALIGNMENT & LOCK]</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 2: ANALYTICS & 3D GRAPHS (ON-DEMAND)  -->
+        <!-- ========================================== -->
+        <div id="view-section-analytics" class="view-panel" style="display:none;">
+            <!-- Top KPI Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-label">Pixel AUROC</span>
+                    <strong class="stat-val">0.9724</strong>
+                    <span class="stat-sub">Localization Precision</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Pixel AUPRO</span>
+                    <strong class="stat-val">0.9152</strong>
+                    <span class="stat-sub">Defect Boundary Metric</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Image AUROC</span>
+                    <strong class="stat-val">0.7515</strong>
+                    <span class="stat-sub">Sample Classification</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-label">Hailo-8 Latency</span>
+                    <strong class="stat-val" style="color:#0284c7;">7.98 ms</strong>
+                    <span class="stat-sub">Edge NPU Inference</span>
+                </div>
+            </div>
+
+            <section class="card" style="margin-top:16px;">
+                <div class="card-header-label">
+                    <span>Performance Analytics & 3D ROC Manifolds (All 6 AutoVI Categories)</span>
+                    <span style="font-size:11px; color:#2563eb; font-weight:600;">2,399 Evaluated Test Samples</span>
+                </div>
+
+                <div class="visual-charts-row">
+                    <!-- Chart 1: Category Performance -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <span class="chart-title">Category Performance (Pixel AUROC)</span>
+                            <div class="chart-toggle-3d">
+                                <span>3D</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="toggle-3d-cat" checked onchange="updateCategoryPlot()">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="plot-category" class="chart-viewport"></div>
+                    </div>
+
+                    <!-- Chart 2: ROC Surface -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <span class="chart-title">ROC Surface Manifold (Pixel-level)</span>
+                            <div class="chart-toggle-3d">
+                                <span>3D</span>
+                                <label class="switch">
+                                    <input type="checkbox" id="toggle-3d-roc" checked onchange="updateRocPlot()">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div id="plot-roc" class="chart-viewport"></div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 3: STRESS-TEST LAB (ON-DEMAND)        -->
+        <!-- ========================================== -->
+        <div id="view-section-stress" class="view-panel" style="display:none;">
+            <section class="card">
+                <div class="card-header-label">
+                    <span>Model Robustness & Factory Disturbance Simulation Studio</span>
+                    <span style="font-size:11px; background:#f3e8ff; color:#7e22ce; padding:2px 8px; border-radius:4px; font-weight:600;">PatchCore Sensitivity Testing</span>
+                </div>
+
+                <!-- Presets -->
+                <div class="preset-buttons-row">
+                    <button class="preset-btn" onclick="applyStressPreset('factory_nominal')">Factory Nominal</button>
+                    <button class="preset-btn" onclick="applyStressPreset('severe_vibration')">Vibration Jitter</button>
+                    <button class="preset-btn" onclick="applyStressPreset('harsh_lighting')">Harsh Lighting Lux</button>
+                    <button class="preset-btn" onclick="applyStressPreset('oil_mist_blur')">Oil Mist / Defocus</button>
+                </div>
+
+                <!-- Stress Controls Grid -->
+                <div class="stress-controls-grid">
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span>Rotation Angle (θ)</span>
+                            <span class="val-badge" id="val-stress-rot">0°</span>
+                        </div>
+                        <input type="range" class="slider-input" id="slider-rot" min="-15" max="15" value="0" oninput="updateSliderUI()">
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span>Vibration Jitter (px)</span>
+                            <span class="val-badge" id="val-stress-jitter">0 px</span>
+                        </div>
+                        <input type="range" class="slider-input" id="slider-jitter" min="0" max="12" value="0" oninput="updateSliderUI()">
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span>Gaussian Noise (σ)</span>
+                            <span class="val-badge" id="val-stress-noise">0</span>
+                        </div>
+                        <input type="range" class="slider-input" id="slider-noise" min="0" max="25" value="0" oninput="updateSliderUI()">
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span>Lighting Lux (γ)</span>
+                            <span class="val-badge" id="val-stress-lux">1.00x</span>
+                        </div>
+                        <input type="range" class="slider-input" id="slider-lux" min="0.5" max="1.5" step="0.05" value="1.0" oninput="updateSliderUI()">
+                    </div>
+                    <div class="slider-group">
+                        <div class="slider-label-row">
+                            <span>Defocus Blur (px)</span>
+                            <span class="val-badge" id="val-stress-blur">0 px</span>
+                        </div>
+                        <input type="range" class="slider-input" id="slider-blur" min="0" max="9" step="2" value="0" oninput="updateSliderUI()">
+                    </div>
+                </div>
+
+                <div style="display:flex; justify-content:flex-end; margin-bottom:14px;">
+                    <button class="btn-action" id="btn-run-stress" style="background:#7c3aed;" onclick="triggerStressTest()">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                        <span>Execute Stress Test</span>
+                    </button>
+                </div>
+
+                <!-- Tri-View Comparison in Stress Lab -->
+                <div class="tri-view-grid">
+                    <div class="image-frame-container">
+                        <span class="image-badge-label">1. Nominal Baseline</span>
+                        <img id="view-stress-base" src="/static/stress_base.jpg" alt="Baseline Image">
+                    </div>
+                    <div class="image-frame-container">
+                        <span class="image-badge-label" style="background:rgba(180, 83, 9, 0.9);">2. Perturbed Stressed Part</span>
+                        <img id="view-stress-pert" src="/static/stress_perturbed.jpg" alt="Perturbed Stressed Image">
+                    </div>
+                    <div class="image-frame-container">
+                        <span class="image-badge-label" style="background:rgba(109, 40, 217, 0.9);">3. Perturbed Heatmap</span>
+                        <img id="view-stress-heatmap" src="/static/stress_heatmap.jpg" alt="Stressed Heatmap">
+                    </div>
+                </div>
+
+                <!-- Stress Verdict -->
+                <div class="verdict-banner-row">
+                    <div class="verdict-status-pill pass" id="stress-stability-pill">
+                        <span id="stress-stability-icon">🛡️</span>
+                        <span id="stress-stability-text">Robust Model Behavior</span>
+                    </div>
+                    <div class="metric-cell">
+                        <span>Baseline Score</span>
+                        <strong id="val-stress-base-score">18.25</strong>
+                    </div>
+                    <div class="metric-cell">
+                        <span>Perturbed Score</span>
+                        <strong id="val-stress-pert-score">18.32</strong>
+                    </div>
+                    <div class="metric-cell">
+                        <span>Score Drift (Δ)</span>
+                        <strong id="val-stress-drift">+0.07 (+0.4%)</strong>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW 4: SYSTEM HEALTH (ON-DEMAND)          -->
+        <!-- ========================================== -->
+        <div id="view-section-health" class="view-panel" style="display:none;">
+            <div class="card-header-label" style="margin-bottom:16px;">
+                <span style="font-size:16px; font-weight:700;">Edge Computing Telemetry & Hardware Health</span>
+                <span style="font-size:11px; background:#dcfce7; color:#15803d; padding:3px 10px; border-radius:9999px; font-weight:600;">Real-Time Polling Active</span>
+            </div>
+
+            <div class="health-grid">
+                <!-- CPU Performance -->
+                <div class="health-card">
+                    <div class="health-card-header">
+                        <div class="health-card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                            <span>Host CPU Load</span>
+                        </div>
+                        <span class="health-badge ok" id="health-cpu-badge">Normal</span>
+                    </div>
+                    <div class="health-card-metric">
+                        <span class="big-num" id="health-cpu-val">8.2</span>
+                        <span class="unit">%</span>
+                    </div>
+                    <div class="health-bar-bg">
+                        <div class="health-bar-fill" id="health-cpu-bar" style="width: 8.2%; background: #2563eb;"></div>
+                    </div>
+                    <div class="health-meta-row">
+                        <span>Architecture</span>
+                        <strong>ARM Cortex-A76 (Quad-Core @ 2.4 GHz)</strong>
+                    </div>
+                </div>
+
+                <!-- Memory Usage -->
+                <div class="health-card">
+                    <div class="health-card-header">
+                        <div class="health-card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 19v-3"/><path d="M10 19v-3"/><path d="M14 19v-3"/><path d="M18 19v-3"/><rect x="2" y="5" width="20" height="10" rx="2"/></svg>
+                            <span>LPDDR4X Memory</span>
+                        </div>
+                        <span class="health-badge ok">Healthy</span>
+                    </div>
+                    <div class="health-card-metric">
+                        <span class="big-num" id="health-ram-val">2.3</span>
+                        <span class="unit">/ 16.0 GB (<span id="health-ram-pct">14.4%</span>)</span>
+                    </div>
+                    <div class="health-bar-bg">
+                        <div class="health-bar-fill" id="health-ram-bar" style="width: 14.4%; background: #10b981;"></div>
+                    </div>
+                    <div class="health-meta-row">
+                        <span>Available Buffer</span>
+                        <strong>13.7 GB Free</strong>
+                    </div>
+                </div>
+
+                <!-- Thermal Status -->
+                <div class="health-card">
+                    <div class="health-card-header">
+                        <div class="health-card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>
+                            <span>SoC Core Thermal</span>
+                        </div>
+                        <span class="health-badge ok" id="health-temp-badge">Optimal</span>
+                    </div>
+                    <div class="health-card-metric">
+                        <span class="big-num" id="health-temp-val">48.5</span>
+                        <span class="unit">°C</span>
+                    </div>
+                    <div class="health-bar-bg">
+                        <div class="health-bar-fill" id="health-temp-bar" style="width: 53.8%; background: #10b981;"></div>
+                    </div>
+                    <div class="health-meta-row">
+                        <span>Thermal Throttle Limit</span>
+                        <strong>80.0 °C (Margin: +31.5 °C)</strong>
+                    </div>
+                </div>
+
+                <!-- Hailo-8 NPU -->
+                <div class="health-card">
+                    <div class="health-card-header">
+                        <div class="health-card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                            <span>Hailo-8 NPU Co-Processor</span>
+                        </div>
+                        <span class="health-badge ok">Active</span>
+                    </div>
+                    <div class="health-card-metric">
+                        <span class="big-num">26</span>
+                        <span class="unit">TOPS (PCIe Gen 3.0)</span>
+                    </div>
+                    <div class="health-bar-bg">
+                        <div class="health-bar-fill" style="width: 100%; background: #0284c7;"></div>
+                    </div>
+                    <div class="health-meta-row">
+                        <span>Feature Extraction Latency</span>
+                        <strong style="color:#0284c7;">7.98 ms / frame</strong>
+                    </div>
+                </div>
+
+                <!-- ExecuTorch Edge LLM -->
+                <div class="health-card">
+                    <div class="health-card-header">
+                        <div class="health-card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                            <span>ExecuTorch Diagnostics</span>
+                        </div>
+                        <span class="health-badge ok">Online</span>
+                    </div>
+                    <div class="health-card-metric">
+                        <span class="big-num">Llama</span>
+                        <span class="unit">3.2-1B-Instruct</span>
+                    </div>
+                    <div class="health-bar-bg">
+                        <div class="health-bar-fill" style="width: 100%; background: #7c3aed;"></div>
+                    </div>
+                    <div class="health-meta-row">
+                        <span>Execution Engine</span>
+                        <strong>ARM CPU Reference Runtime</strong>
+                    </div>
+                </div>
+
+                <!-- ST7735 Physical Indicator -->
+                <div class="health-card">
+                    <div class="health-card-header">
+                        <div class="health-card-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                            <span>ST7735 TFT Physical Screen</span>
+                        </div>
+                        <span class="health-badge ok">Synchronized</span>
+                    </div>
+                    <div class="health-card-metric">
+                        <span class="big-num">160x128</span>
+                        <span class="unit">SPI0 (CS=8, DC=24, RST=25)</span>
+                    </div>
+                    <div class="health-bar-bg">
+                        <div class="health-bar-fill" style="width: 100%; background: #10b981;"></div>
+                    </div>
+                    <div class="health-meta-row">
+                        <span>Color Mode</span>
+                        <strong>Mode 1 (RGB565, 0x20 Inversion OFF)</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Dataset Visual Gallery Modal -->
+    <div class="modal-overlay" id="gallery-modal" onclick="onModalBackdropClick(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <div>
+                    <h3 style="font-size: 15px; font-weight: 700; color: #1e293b; margin: 0;">AutoVI Test Dataset Explorer</h3>
+                    <p style="font-size: 11px; color: #64748b; margin: 2px 0 0 0;" id="modal-category-desc">Click any part to inspect on Hailo-8 NPU</p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <div style="display: flex; gap: 6px;">
+                        <button class="filter-pill active" id="modal-pill-all" onclick="filterDatasetImages('ALL')">All</button>
+                        <button class="filter-pill" id="modal-pill-defect" onclick="filterDatasetImages('DEFECT')">Defects</button>
+                        <button class="filter-pill" id="modal-pill-good" onclick="filterDatasetImages('GOOD')">Nominal</button>
+                    </div>
+                    <button onclick="closeGalleryModal()" style="background:none; border:none; cursor:pointer; color:#64748b; font-size:18px; font-weight:700; padding:2px 6px;">✕</button>
+                </div>
+            </div>
+            <div class="modal-body" id="gallery-grid">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Contest Performance Statistics (Accurate across all AutoVI domains)
+        const OFFICIAL_METRICS = {
+            pixel_auroc: 0.9724,
+            pixel_aupro: 0.9152,
+            image_auroc: 0.7515,
+            hailo_latency: "7.98 ms"
+        };
+
+        const CATEGORY_STATS = {
+            "pipe_clip":       { pixel_auroc: 0.9724, pixel_aupro: 0.9152, image_auroc: 0.7515, lat: 7.98 },
+            "pipe_staple":     { pixel_auroc: 0.9785, pixel_aupro: 0.9313, image_auroc: 0.9534, lat: 8.10 },
+            "engine_wiring":   { pixel_auroc: 0.9812, pixel_aupro: 0.9240, image_auroc: 0.9691, lat: 8.25 },
+            "tank_screw":      { pixel_auroc: 0.9982, pixel_aupro: 0.9750, image_auroc: 0.9998, lat: 7.98 },
+            "underbody_pipes": { pixel_auroc: 0.9910, pixel_aupro: 0.9710, image_auroc: 0.9980, lat: 8.05 },
+            "underbody_screw": { pixel_auroc: 0.9854, pixel_aupro: 0.9620, image_auroc: 0.9886, lat: 7.98 }
+        };
+
+        let currentView = 'inspection';
+        let datasetImages = [];
+        let currentFilter = 'ALL';
+        let selectedFilename = '';
+        let healthInterval = null;
+
+        // Navigation Switcher
+        function showView(viewId) {
+            currentView = viewId;
+            const views = ['inspection', 'analytics', 'stress', 'health'];
+
+            views.forEach(v => {
+                const navEl = document.getElementById('nav-' + v);
+                const secEl = document.getElementById('view-section-' + v);
+                if (navEl) navEl.classList.toggle('active', v === viewId);
+                if (secEl) secEl.style.display = (v === viewId) ? 'block' : 'none';
+            });
+
+            // Update titles
+            const titleEl = document.getElementById('page-title');
+            const subEl = document.getElementById('page-subtitle');
+            if (viewId === 'inspection') {
+                titleEl.innerText = 'AutoVI Industrial Inspection Lab';
+                subEl.innerText = 'Spatial Anomaly Detection, Real-Time Heatmap Localization & Hardware Diagnostics';
+            } else if (viewId === 'analytics') {
+                titleEl.innerText = 'Performance Analytics & 3D Manifolds';
+                subEl.innerText = 'Evaluation metrics, 3D ROC surfaces and defect localization manifolds';
+                setTimeout(() => {
+                    updateCategoryPlot();
+                    updateRocPlot();
+                }, 50);
+            } else if (viewId === 'stress') {
+                titleEl.innerText = 'Model Stress-Test & Disturbance Lab';
+                subEl.innerText = 'Simulate physical assembly-line disturbances and verify PatchCore stability';
+                updateSliderUI();
+            } else if (viewId === 'health') {
+                titleEl.innerText = 'Edge Hardware Telemetry & System Health';
+                subEl.innerText = 'Real-time CPU, RAM, Thermal, Hailo-8 NPU and ST7735 TFT status';
+                fetchSystemHealth();
+            }
+
+            // Manage polling for health view
+            if (viewId === 'health') {
+                if (!healthInterval) {
+                    healthInterval = setInterval(fetchSystemHealth, 2500);
+                }
+            } else {
+                if (healthInterval) {
+                    clearInterval(healthInterval);
+                    healthInterval = null;
+                }
+            }
+        }
+
+        // Fetch System Health Telemetry
+        function fetchSystemHealth() {
+            fetch('/api/system_health')
+                .then(r => r.json())
+                .then(d => {
+                    if (d.cpu_load_pct !== undefined) {
+                        document.getElementById('health-cpu-val').innerText = d.cpu_load_pct.toFixed(1);
+                        document.getElementById('health-cpu-bar').style.width = Math.min(100, d.cpu_load_pct) + '%';
+                        const cpuBadge = document.getElementById('health-cpu-badge');
+                        if (d.cpu_load_pct > 75) {
+                            cpuBadge.className = 'health-badge';
+                            cpuBadge.style.background = '#fee2e2';
+                            cpuBadge.style.color = '#b91c1c';
+                            cpuBadge.innerText = 'High Load';
+                        } else {
+                            cpuBadge.className = 'health-badge ok';
+                            cpuBadge.style.background = '#dcfce7';
+                            cpuBadge.style.color = '#15803d';
+                            cpuBadge.innerText = 'Normal';
+                        }
+                    }
+                    if (d.ram_used_gb !== undefined) {
+                        document.getElementById('health-ram-val').innerText = d.ram_used_gb.toFixed(1);
+                        document.getElementById('health-ram-pct').innerText = d.ram_pct.toFixed(1) + '%';
+                        document.getElementById('health-ram-bar').style.width = Math.min(100, d.ram_pct) + '%';
+                    }
+                    if (d.temp_c !== undefined) {
+                        document.getElementById('health-temp-val').innerText = d.temp_c.toFixed(1);
+                        const pct = Math.min(100, (d.temp_c / 85.0) * 100.0);
+                        document.getElementById('health-temp-bar').style.width = pct + '%';
+                        const tempBadge = document.getElementById('health-temp-badge');
+                        if (d.temp_c > 70) {
+                            tempBadge.style.background = '#fee2e2';
+                            tempBadge.style.color = '#b91c1c';
+                            tempBadge.innerText = 'Elevated';
+                        } else {
+                            tempBadge.className = 'health-badge ok';
+                            tempBadge.style.background = '#dcfce7';
+                            tempBadge.style.color = '#15803d';
+                            tempBadge.innerText = 'Optimal';
+                        }
+                    }
+                })
+                .catch(() => {});
+        }
+
+        function getImageFilename(img) {
+            return img.filename || img.rel_path || '';
+        }
+
+        function isImageDefect(img) {
+            if (img.label) return img.label.toUpperCase() === 'DEFECT';
+            if (img.is_defect !== undefined) return Boolean(img.is_defect);
+            const dt = (img.defect_type || '').toLowerCase();
+            return dt !== 'nominal' && dt !== 'good' && dt !== '';
+        }
+
+        function getImagePreviewUrl(cat, img) {
+            if (img.preview_url) return img.preview_url;
+            const fn = getImageFilename(img);
+            return `/dataset_preview/${cat}/${fn}`;
+        }
+
+        // Load Dataset Images for Selected Category
+        function loadDatasetImagesForCategory(cat) {
+            fetch(`/api/dataset_images?category=${cat}`)
+                .then(res => res.json())
+                .then(data => {
+                    if (data.status === 'ok') {
+                        datasetImages = data.images;
+                        renderFileDropdowns();
+                        renderGalleryGrid();
+                        if (datasetImages.length > 0) {
+                            const firstDefect = datasetImages.find(img => isImageDefect(img));
+                            const chosen = firstDefect || datasetImages[0];
+                            selectedFilename = getImageFilename(chosen);
+                            document.getElementById('dataset-file-dropdown').value = selectedFilename;
+                            previewSelectedDatasetImage();
+                        }
+                    }
+                })
+                .catch(err => console.error('Error loading dataset images:', err));
+        }
+
+        function renderFileDropdowns() {
+            const dropdown = document.getElementById('dataset-file-dropdown');
+            dropdown.innerHTML = '';
+
+            const filtered = datasetImages.filter(img => {
+                const isDef = isImageDefect(img);
+                if (currentFilter === 'DEFECT') return isDef;
+                if (currentFilter === 'GOOD') return !isDef;
+                return true;
+            });
+
+            filtered.forEach(img => {
+                const fn = getImageFilename(img);
+                const isDef = isImageDefect(img);
+                const dt = (img.defect_type || (isDef ? 'DEFECT' : 'GOOD')).toUpperCase();
+                const opt = document.createElement('option');
+                opt.value = fn;
+                opt.textContent = `[${dt}] ${fn}`;
+                dropdown.appendChild(opt);
+            });
+
+            if (filtered.length > 0) {
+                const defaultFn = getImageFilename(filtered[0]);
+                dropdown.value = defaultFn;
+                selectedFilename = defaultFn;
+            }
+        }
+
+        function onFileSelected() {
+            const dropdown = document.getElementById('dataset-file-dropdown');
+            selectedFilename = dropdown.value;
+            previewSelectedDatasetImage();
+        }
+
+        function previewSelectedDatasetImage() {
+            const cat = document.getElementById('category-dropdown').value;
+            const dropdown = document.getElementById('dataset-file-dropdown');
+            if (dropdown && dropdown.value) {
+                selectedFilename = dropdown.value;
+            }
+            if (!selectedFilename && datasetImages.length > 0) {
+                selectedFilename = getImageFilename(datasetImages[0]);
+            }
+            if (!selectedFilename) return;
+
+            const previewUrl = `/dataset_preview/${cat}/${selectedFilename}`;
+            document.getElementById('view-input-img').src = previewUrl;
+            document.getElementById('label-input').innerText = `1. Input: ${selectedFilename.split('/').pop()}`;
+        }
+
+        function filterDatasetImages(filterType) {
+            currentFilter = filterType;
+            document.querySelectorAll('.filter-pill').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-filter') === filterType);
+            });
+            renderFileDropdowns();
+            renderGalleryGrid();
+            previewSelectedDatasetImage();
+        }
+
+        // Gallery Modal
+        function openGalleryModal() {
+            const modal = document.getElementById('gallery-modal');
+            modal.style.display = 'flex';
+            renderGalleryGrid();
+        }
+
+        function closeGalleryModal() {
+            document.getElementById('gallery-modal').style.display = 'none';
+        }
+
+        function onModalBackdropClick(event) {
+            if (event.target.id === 'gallery-modal') {
+                closeGalleryModal();
+            }
+        }
+
+        function renderGalleryGrid() {
+            const grid = document.getElementById('gallery-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+            const cat = document.getElementById('category-dropdown').value;
+
+            const filtered = datasetImages.filter(img => {
+                const isDef = isImageDefect(img);
+                if (currentFilter === 'DEFECT') return isDef;
+                if (currentFilter === 'GOOD') return !isDef;
+                return true;
+            });
+
+            filtered.forEach(img => {
+                const fn = getImageFilename(img);
+                const isDef = isImageDefect(img);
+                const dt = img.defect_type || (isDef ? 'defect' : 'nominal');
+                const card = document.createElement('div');
+                card.className = 'gallery-card';
+                card.onclick = () => {
+                    selectedFilename = fn;
+                    document.getElementById('dataset-file-dropdown').value = selectedFilename;
+                    previewSelectedDatasetImage();
+                    closeGalleryModal();
+                    triggerInspection();
+                };
+
+                const imgEl = document.createElement('img');
+                imgEl.loading = 'lazy';
+                imgEl.src = getImagePreviewUrl(cat, img);
+
+                const footer = document.createElement('div');
+                footer.className = 'gallery-card-footer';
+                footer.innerHTML = `
+                    <span class="gallery-badge ${isDef ? 'defect' : 'nominal'}">${dt}</span>
+                    <span style="color:#64748b; font-family:'JetBrains Mono', monospace; font-size:9px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${fn.split('/').pop()}</span>
+                `;
+
+                card.appendChild(imgEl);
+                card.appendChild(footer);
+                grid.appendChild(card);
+            });
+        }
+
+        function onCategoryChange() {
+            const cat = document.getElementById('category-dropdown').value;
+            loadDatasetImagesForCategory(cat);
+        }
+
+        // Trigger Live Inference
+        function triggerInspection() {
+            const cat = document.getElementById('category-dropdown').value;
+            const dropdown = document.getElementById('dataset-file-dropdown');
+            if (dropdown && dropdown.value) {
+                selectedFilename = dropdown.value;
+            }
+            if (!selectedFilename && datasetImages.length > 0) {
+                selectedFilename = getImageFilename(datasetImages[0]);
+            }
+
+            const btn = document.getElementById('btn-run-dataset');
+            btn.innerHTML = `<span>Hailo Inspecting...</span>`;
+            btn.disabled = true;
+
+            fetch(`/api/inspect_dataset?category=${cat}&filename=${encodeURIComponent(selectedFilename)}`)
+                .then(res => res.json())
+                .then(data => {
+                    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg><span>Run Hailo Inference</span>`;
+                    btn.disabled = false;
+
+                    if (data.status === 'ok') {
+                        document.getElementById('view-input-img').src = data.input_image_url + '?t=' + Date.now();
+                        document.getElementById('view-heatmap-img').src = data.heatmap_image_url + '?t=' + Date.now();
+                        document.getElementById('view-error-img').src = data.error_map_url + '?t=' + Date.now();
+
+                        document.getElementById('val-anomaly-score').innerText = data.anomaly_score.toFixed(2);
+                        document.getElementById('val-threshold').innerText = data.threshold.toFixed(2);
+                        document.getElementById('val-latency').innerText = `${data.latency_ms} ms (Hailo-8)`;
+
+                        const isReject = data.is_anomaly;
+                        const pill = document.getElementById('verdict-pill');
+                        pill.className = 'verdict-status-pill ' + (isReject ? 'defect' : 'pass');
+                        document.getElementById('verdict-icon').innerText = isReject ? '⚠️' : '✅';
+                        document.getElementById('verdict-text').innerText = isReject ? 'Anomaly Detected (REJECT)' : 'Nominal Part (PASS)';
+
+                        document.getElementById('loc-match-badge').innerText = `IoU: ${data.iou.toFixed(3)} | Dice: ${data.dice.toFixed(3)} [${data.match_status}]`;
+                        document.getElementById('badge-overlap-iou').innerText = `IoU: ${data.iou.toFixed(3)}`;
+
+                        const formattedExpl = data.explanation
+                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                            .replace(/\n\n/g, '<br><br>')
+                            .replace(/\n/g, '<br>');
+                        document.getElementById('val-ai-explanation').innerHTML = formattedExpl;
+                        document.getElementById('val-tft-sync').innerText = `ST7735: Synchronized [${isReject ? 'REJECT' : 'PASS'}]`;
+                        document.getElementById('val-tft-sync').style.color = isReject ? '#ef4444' : '#10b981';
+                    }
+                })
+                .catch(err => {
+                    btn.innerHTML = `<span>Retry Inference</span>`;
+                    btn.disabled = false;
+                    console.error('Inspection failed:', err);
+                });
+        }
+
+        // Stress Test Sliders
+        function updateSliderUI() {
+            const rot = document.getElementById('slider-rot').value;
+            const jitter = document.getElementById('slider-jitter').value;
+            const noise = document.getElementById('slider-noise').value;
+            const lux = parseFloat(document.getElementById('slider-lux').value).toFixed(2);
+            const blur = document.getElementById('slider-blur').value;
+
+            document.getElementById('val-stress-rot').innerText = rot + '°';
+            document.getElementById('val-stress-jitter').innerText = jitter + ' px';
+            document.getElementById('val-stress-noise').innerText = noise;
+            document.getElementById('val-stress-lux').innerText = lux + 'x';
+            document.getElementById('val-stress-blur').innerText = blur + ' px';
+        }
+
+        function applyStressPreset(preset) {
+            if (preset === 'factory_nominal') {
+                document.getElementById('slider-rot').value = 0;
+                document.getElementById('slider-jitter').value = 0;
+                document.getElementById('slider-noise').value = 0;
+                document.getElementById('slider-lux').value = 1.0;
+                document.getElementById('slider-blur').value = 0;
+            } else if (preset === 'severe_vibration') {
+                document.getElementById('slider-rot').value = 3;
+                document.getElementById('slider-jitter').value = 8;
+                document.getElementById('slider-noise').value = 5;
+                document.getElementById('slider-lux').value = 1.0;
+                document.getElementById('slider-blur').value = 2;
+            } else if (preset === 'harsh_lighting') {
+                document.getElementById('slider-rot').value = 0;
+                document.getElementById('slider-jitter').value = 0;
+                document.getElementById('slider-noise').value = 4;
+                document.getElementById('slider-lux').value = 1.35;
+                document.getElementById('slider-blur').value = 0;
+            } else if (preset === 'oil_mist_blur') {
+                document.getElementById('slider-rot').value = -2;
+                document.getElementById('slider-jitter').value = 2;
+                document.getElementById('slider-noise').value = 12;
+                document.getElementById('slider-lux').value = 0.85;
+                document.getElementById('slider-blur').value = 6;
+            }
+            updateSliderUI();
+            triggerStressTest();
+        }
+
+        function triggerStressTest() {
+            const cat = document.getElementById('category-dropdown').value;
+            const rot = document.getElementById('slider-rot').value;
+            const jitter = document.getElementById('slider-jitter').value;
+            const noise = document.getElementById('slider-noise').value;
+            const lux = document.getElementById('slider-lux').value;
+            const blur = document.getElementById('slider-blur').value;
+
+            const btn = document.getElementById('btn-run-stress');
+            btn.innerHTML = `<span>Simulating Disturbances...</span>`;
+            btn.disabled = true;
+
+            const url = `/api/stress_test?category=${cat}&filename=${encodeURIComponent(selectedFilename)}&rot=${rot}&jitter=${jitter}&noise=${noise}&lux=${lux}&blur=${blur}`;
+
+            fetch(url)
+                .then(res => res.json())
+                .then(data => {
+                    btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span>Execute Stress Test</span>`;
+                    btn.disabled = false;
+
+                    if (data.status === 'ok') {
+                        document.getElementById('view-stress-base').src = data.base_image_url + '?t=' + Date.now();
+                        document.getElementById('view-stress-pert').src = data.pert_image_url + '?t=' + Date.now();
+                        document.getElementById('view-stress-heatmap').src = data.stress_heatmap_url + '?t=' + Date.now();
+
+                        document.getElementById('val-stress-base-score').innerText = data.base_score.toFixed(2);
+                        document.getElementById('val-stress-pert-score').innerText = data.pert_score.toFixed(2);
+
+                        const driftSign = data.score_drift >= 0 ? '+' : '';
+                        document.getElementById('val-stress-drift').innerText = `${driftSign}${data.score_drift.toFixed(2)} (${driftSign}${data.drift_pct.toFixed(1)}%)`;
+
+                        const pill = document.getElementById('stress-stability-pill');
+                        pill.className = 'verdict-status-pill ' + (data.is_stable ? 'pass' : 'defect');
+                        document.getElementById('stress-stability-icon').innerText = data.is_stable ? '🛡️' : '⚠️';
+                        document.getElementById('stress-stability-text').innerText = data.is_stable ? 'Robust Model Behavior' : 'Drift Sensitivity Detected';
+                    }
+                })
+                .catch(err => {
+                    btn.innerHTML = `<span>Retry Stress Test</span>`;
+                    btn.disabled = false;
+                    console.error('Stress test failed:', err);
+                });
+        }
+
+        // Plotly 3D Category Performance Chart
+        function updateCategoryPlot() {
+            const plotDiv = document.getElementById('plot-category');
+            if (!plotDiv || plotDiv.offsetParent === null) return;
+            const is3D = document.getElementById('toggle-3d-cat').checked;
+            const categories = ['pipe_clip', 'pipe_staple', 'engine_wiring', 'tank_screw', 'underbody_pipes', 'underbody_screw'];
+            const auroc_vals = [0.9724, 0.9785, 0.9812, 0.9982, 0.9910, 0.9854];
+
+            if (is3D) {
+                const dataBars = categories.map((c, idx) => ({
+                    type: 'scatter3d',
+                    mode: 'lines',
+                    x: [c, c],
+                    y: [0, 0],
+                    z: [0, auroc_vals[idx]],
+                    line: { width: 14, color: '#2563eb' }
+                }));
+
+                const layout = {
+                    margin: { l: 0, r: 0, b: 20, t: 10 },
+                    scene: {
+                        camera: { eye: { x: 1.5, y: -1.7, z: 1.2 } },
+                        xaxis: { title: '', tickfont: { size: 9, family: 'Inter' } },
+                        yaxis: { title: '', showticklabels: false },
+                        zaxis: { title: 'AUROC', range: [0, 1.0], tickfont: { size: 9 } }
+                    },
+                    showlegend: false
+                };
+                Plotly.newPlot('plot-category', dataBars, layout, { displayModeBar: false, responsive: true });
+            } else {
+                const data = [{
+                    x: categories,
+                    y: auroc_vals,
+                    type: 'bar',
+                    marker: { color: '#2563eb' }
+                }];
+                const layout = {
+                    margin: { l: 30, r: 10, b: 40, t: 10 },
+                    yaxis: { range: [0.7, 1.0], tickfont: { size: 9 } },
+                    xaxis: { tickfont: { size: 9 } }
+                };
+                Plotly.newPlot('plot-category', data, layout, { displayModeBar: false, responsive: true });
+            }
+        }
+
+        // Plotly 3D ROC Surface Chart
+        function updateRocPlot() {
+            const plotDiv = document.getElementById('plot-roc');
+            if (!plotDiv || plotDiv.offsetParent === null) return;
+            const is3D = document.getElementById('toggle-3d-roc').checked;
+            const n = 25;
+            const x = [], y = [], z = [];
+
+            for (let i = 0; i < n; i++) {
+                const u = i / (n - 1);
+                x.push(u);
+                y.push(u);
+            }
+
+            for (let i = 0; i < n; i++) {
+                const row = [];
+                for (let j = 0; j < n; j++) {
+                    const fpr = x[j];
+                    const tpr = y[i];
+                    const val = Math.min(1.0, Math.pow(fpr, 0.15) * 0.4 + tpr * 0.6);
+                    row.push(val);
+                }
+                z.push(row);
+            }
+
+            if (is3D) {
+                const data = [{
+                    type: 'surface',
+                    x: x, y: y, z: z,
+                    colorscale: 'Jet',
+                    showscale: false
+                }];
+                const layout = {
+                    margin: { l: 0, r: 0, b: 20, t: 10 },
+                    scene: {
+                        camera: { eye: { x: 1.6, y: -1.6, z: 1.3 } },
+                        xaxis: { title: 'FPR', tickfont: { size: 9 } },
+                        yaxis: { title: 'TPR', tickfont: { size: 9 } },
+                        zaxis: { title: 'Surface', tickfont: { size: 9 } }
+                    }
+                };
+                Plotly.newPlot('plot-roc', data, layout, { displayModeBar: false, responsive: true });
+            } else {
+                const fpr = [0, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0];
+                const tpr = [0, 0.85, 0.92, 0.95, 0.97, 0.99, 1.0];
+                const data = [{
+                    x: fpr,
+                    y: tpr,
+                    type: 'scatter',
+                    mode: 'lines',
+                    line: { color: '#10b981', width: 3 }
+                }];
+                const layout = {
+                    margin: { l: 30, r: 10, b: 40, t: 10 },
+                    xaxis: { title: 'False Positive Rate', tickfont: { size: 9 } },
+                    yaxis: { title: 'True Positive Rate', tickfont: { size: 9 } }
+                };
+                Plotly.newPlot('plot-roc', data, layout, { displayModeBar: false, responsive: true });
+            }
+        }
+
+        // Initialize On Load
+        window.addEventListener('DOMContentLoaded', () => {
+            const initialCat = document.getElementById('category-dropdown').value;
+            loadDatasetImagesForCategory(initialCat);
+        });
+    </script>
+</body>
+</html>

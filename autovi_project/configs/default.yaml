@@ -1,0 +1,46 @@
+# AutoVI PatchCore Default Configuration
+project:
+  name: "AutoVI_Anomaly_Detection"
+  version: "1.0.0"
+  author: "Senior Vision Engineering Team"
+  seed: 42
+
+model:
+  name: "patchcore"
+  backbone: "wide_resnet50_2"
+  pretrained: true
+  layers:
+    - "layer2"
+    - "layer3"
+  coreset_sampling_ratio: 0.1
+  num_neighbors: 9
+  dimension_reduction: 128  # Random projection dim for coreset selection speed
+  chunk_size: 8192          # Memory-bounded distance chunk size
+  candidate_pool_size: null # null for full exact coreset, or int (e.g. 35840) for candidate pool
+
+data:
+  image_size: [256, 256]
+  batch_size: 8
+  num_workers: 0  # 0 for Windows multiprocessing safety
+  normal_images_only: true
+  train_validation_ratio: 0.9
+  validation_normal_ratio: 0.1
+  use_test_anomalies_for_training: false
+
+training:
+  target_fpr: 0.05  # Calibrate normal threshold to achieve ~5% FPR on validation
+  device: "auto"    # "cuda", "cpu", or "auto"
+
+evaluation:
+  image_auroc: true
+  pixel_auroc: true
+  au_pro: true
+  image_average_precision: true
+  pixel_average_precision: true
+
+inference:
+  save_anomaly_map: true
+  save_overlay: true
+  save_binary_mask: true
+  save_image_score: true
+  output_format: "png"

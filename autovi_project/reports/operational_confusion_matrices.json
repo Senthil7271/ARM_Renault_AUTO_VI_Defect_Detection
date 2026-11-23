@@ -1,0 +1,296 @@
+{
+    "pipe_clip": {
+        "calibration_metadata": {
+            "percentile": 95.0,
+            "target_nominal_fpr": 0.05,
+            "validation_sample_size": 20,
+            "discrete_quantile_resolution": "1/20 (5.0%)",
+            "calibrated_decision_threshold": 18.908601570129395,
+            "theoretical_guarantee_validity": "Unsupported (sample size too small for statistical tail bounds; unmodeled domain shift alters test FPR)"
+        },
+        "calibrated_operating_point": {
+            "threshold": 18.908601570129395,
+            "TP": 33,
+            "FP": 30,
+            "TN": 165,
+            "FN": 109,
+            "Sensitivity_Recall": 0.2323943661971831,
+            "Specificity": 0.8461538461538461,
+            "Precision": 0.5238095238095238,
+            "F1_Score": 0.32195121951219513,
+            "False_Alarm_Rate": 0.15384615384615385
+        },
+        "exploratory_oracle_operating_points": {
+            "optimal_f1": {
+                "threshold": 17.0842342376709,
+                "TP": 124,
+                "FP": 78,
+                "TN": 117,
+                "FN": 18,
+                "Sensitivity_Recall": 0.8732394366197183,
+                "Specificity": 0.6,
+                "Precision": 0.6138613861386139,
+                "F1_Score": 0.7209302325581396,
+                "False_Alarm_Rate": 0.4
+            },
+            "youdens_j": {
+                "threshold": 17.0842342376709,
+                "TP": 124,
+                "FP": 78,
+                "TN": 117,
+                "FN": 18,
+                "Sensitivity_Recall": 0.8732394366197183,
+                "Specificity": 0.6,
+                "Precision": 0.6138613861386139,
+                "F1_Score": 0.7209302325581396,
+                "False_Alarm_Rate": 0.4
+            },
+            "status": "Oracle Upper Bound (Test Ground-Truth Optimized, Not Deployable)"
+        }
+    },
+    "pipe_staple": {
+        "calibration_metadata": {
+            "percentile": 95.0,
+            "target_nominal_fpr": 0.05,
+            "validation_sample_size": 20,
+            "discrete_quantile_resolution": "1/20 (5.0%)",
+            "calibrated_decision_threshold": 17.28337688446045,
+            "theoretical_guarantee_validity": "Unsupported (sample size too small for statistical tail bounds; unmodeled domain shift alters test FPR)"
+        },
+        "calibrated_operating_point": {
+            "threshold": 17.28337688446045,
+            "TP": 117,
+            "FP": 80,
+            "TN": 108,
+            "FN": 0,
+            "Sensitivity_Recall": 1.0,
+            "Specificity": 0.574468085106383,
+            "Precision": 0.5939086294416244,
+            "F1_Score": 0.7452229299363057,
+            "False_Alarm_Rate": 0.425531914893617
+        },
+        "exploratory_oracle_operating_points": {
+            "optimal_f1": {
+                "threshold": 18.872774124145508,
+                "TP": 113,
+                "FP": 23,
+                "TN": 165,
+                "FN": 4,
+                "Sensitivity_Recall": 0.9658119658119658,
+                "Specificity": 0.8776595744680851,
+                "Precision": 0.8308823529411765,
+                "F1_Score": 0.8932806324110673,
+                "False_Alarm_Rate": 0.12234042553191489
+            },
+            "youdens_j": {
+                "threshold": 18.73879051208496,
+                "TP": 115,
+                "FP": 26,
+                "TN": 162,
+                "FN": 2,
+                "Sensitivity_Recall": 0.9829059829059829,
+                "Specificity": 0.8617021276595744,
+                "Precision": 0.8156028368794326,
+                "F1_Score": 0.8914728682170542,
+                "False_Alarm_Rate": 0.13829787234042554
+            },
+            "status": "Oracle Upper Bound (Test Ground-Truth Optimized, Not Deployable)"
+        }
+    },
+    "engine_wiring": {
+        "calibration_metadata": {
+            "percentile": 95.0,
+            "target_nominal_fpr": 0.05,
+            "validation_sample_size": 29,
+            "discrete_quantile_resolution": "1/29 (3.4%)",
+            "calibrated_decision_threshold": 21.575371170043944,
+            "theoretical_guarantee_validity": "Unsupported (sample size too small for statistical tail bounds; unmodeled domain shift alters test FPR)"
+        },
+        "calibrated_operating_point": {
+            "threshold": 21.575371170043944,
+            "TP": 111,
+            "FP": 14,
+            "TN": 271,
+            "FN": 211,
+            "Sensitivity_Recall": 0.3447204968944099,
+            "Specificity": 0.9508771929824561,
+            "Precision": 0.888,
+            "F1_Score": 0.4966442953020134,
+            "False_Alarm_Rate": 0.04912280701754386
+        },
+        "exploratory_oracle_operating_points": {
+            "optimal_f1": {
+                "threshold": 19.675724029541016,
+                "TP": 297,
+                "FP": 155,
+                "TN": 130,
+                "FN": 25,
+                "Sensitivity_Recall": 0.922360248447205,
+                "Specificity": 0.45614035087719296,
+                "Precision": 0.6570796460176991,
+                "F1_Score": 0.7674418604651163,
+                "False_Alarm_Rate": 0.543859649122807
+            },
+            "youdens_j": {
+                "threshold": 20.331069946289062,
+                "TP": 252,
+                "FP": 89,
+                "TN": 196,
+                "FN": 70,
+                "Sensitivity_Recall": 0.782608695652174,
+                "Specificity": 0.6877192982456141,
+                "Precision": 0.7390029325513197,
+                "F1_Score": 0.7601809954751132,
+                "False_Alarm_Rate": 0.312280701754386
+            },
+            "status": "Oracle Upper Bound (Test Ground-Truth Optimized, Not Deployable)"
+        }
+    },
+    "tank_screw": {
+        "calibration_metadata": {
+            "percentile": 95.0,
+            "target_nominal_fpr": 0.05,
+            "validation_sample_size": 32,
+            "discrete_quantile_resolution": "1/32 (3.1%)",
+            "calibrated_decision_threshold": 17.636962699890137,
+            "theoretical_guarantee_validity": "Unsupported (sample size too small for statistical tail bounds; unmodeled domain shift alters test FPR)"
+        },
+        "calibrated_operating_point": {
+            "threshold": 17.636962699890137,
+            "TP": 42,
+            "FP": 57,
+            "TN": 261,
+            "FN": 53,
+            "Sensitivity_Recall": 0.4421052631578947,
+            "Specificity": 0.8207547169811321,
+            "Precision": 0.42424242424242425,
+            "F1_Score": 0.4329896907216495,
+            "False_Alarm_Rate": 0.1792452830188679
+        },
+        "exploratory_oracle_operating_points": {
+            "optimal_f1": {
+                "threshold": 16.620046615600586,
+                "TP": 88,
+                "FP": 106,
+                "TN": 212,
+                "FN": 7,
+                "Sensitivity_Recall": 0.9263157894736842,
+                "Specificity": 0.6666666666666666,
+                "Precision": 0.4536082474226804,
+                "F1_Score": 0.6089965397923875,
+                "False_Alarm_Rate": 0.3333333333333333
+            },
+            "youdens_j": {
+                "threshold": 16.529033660888672,
+                "TP": 91,
+                "FP": 116,
+                "TN": 202,
+                "FN": 4,
+                "Sensitivity_Recall": 0.9578947368421052,
+                "Specificity": 0.6352201257861635,
+                "Precision": 0.4396135265700483,
+                "F1_Score": 0.6026490066225165,
+                "False_Alarm_Rate": 0.36477987421383645
+            },
+            "status": "Oracle Upper Bound (Test Ground-Truth Optimized, Not Deployable)"
+        }
+    },
+    "underbody_pipes": {
+        "calibration_metadata": {
+            "percentile": 95.0,
+            "target_nominal_fpr": 0.05,
+            "validation_sample_size": 17,
+            "discrete_quantile_resolution": "1/17 (5.9%)",
+            "calibrated_decision_threshold": 21.336994171142575,
+            "theoretical_guarantee_validity": "Unsupported (sample size too small for statistical tail bounds; unmodeled domain shift alters test FPR)"
+        },
+        "calibrated_operating_point": {
+            "threshold": 21.336994171142575,
+            "TP": 179,
+            "FP": 5,
+            "TN": 156,
+            "FN": 5,
+            "Sensitivity_Recall": 0.9728260869565217,
+            "Specificity": 0.968944099378882,
+            "Precision": 0.9728260869565217,
+            "F1_Score": 0.9728260869565217,
+            "False_Alarm_Rate": 0.031055900621118012
+        },
+        "exploratory_oracle_operating_points": {
+            "optimal_f1": {
+                "threshold": 21.089990615844727,
+                "TP": 181,
+                "FP": 5,
+                "TN": 156,
+                "FN": 3,
+                "Sensitivity_Recall": 0.9836956521739131,
+                "Specificity": 0.968944099378882,
+                "Precision": 0.9731182795698925,
+                "F1_Score": 0.9783783783783785,
+                "False_Alarm_Rate": 0.031055900621118012
+            },
+            "youdens_j": {
+                "threshold": 21.089990615844727,
+                "TP": 181,
+                "FP": 5,
+                "TN": 156,
+                "FN": 3,
+                "Sensitivity_Recall": 0.9836956521739131,
+                "Specificity": 0.968944099378882,
+                "Precision": 0.9731182795698925,
+                "F1_Score": 0.9783783783783785,
+                "False_Alarm_Rate": 0.031055900621118012
+            },
+            "status": "Oracle Upper Bound (Test Ground-Truth Optimized, Not Deployable)"
+        }
+    },
+    "underbody_screw": {
+        "calibration_metadata": {
+            "percentile": 95.0,
+            "target_nominal_fpr": 0.05,
+            "validation_sample_size": 38,
+            "discrete_quantile_resolution": "1/38 (2.6%)",
+            "calibrated_decision_threshold": 14.44472885131836,
+            "theoretical_guarantee_validity": "Unsupported (sample size too small for statistical tail bounds; unmodeled domain shift alters test FPR)"
+        },
+        "calibrated_operating_point": {
+            "threshold": 14.44472885131836,
+            "TP": 18,
+            "FP": 82,
+            "TN": 292,
+            "FN": 0,
+            "Sensitivity_Recall": 1.0,
+            "Specificity": 0.7807486631016043,
+            "Precision": 0.18,
+            "F1_Score": 0.3050847457627119,
+            "False_Alarm_Rate": 0.2192513368983957
+        },
+        "exploratory_oracle_operating_points": {
+            "optimal_f1": {
+                "threshold": 18.799808502197266,
+                "TP": 17,
+                "FP": 5,
+                "TN": 369,
+                "FN": 1,
+                "Sensitivity_Recall": 0.9444444444444444,
+                "Specificity": 0.9866310160427807,
+                "Precision": 0.7727272727272727,
+                "F1_Score": 0.85,
+                "False_Alarm_Rate": 0.013368983957219251
+            },
+            "youdens_j": {
+                "threshold": 17.907470703125,
+                "TP": 18,
+                "FP": 11,
+                "TN": 363,
+                "FN": 0,
+                "Sensitivity_Recall": 1.0,
+                "Specificity": 0.9705882352941176,
+                "Precision": 0.6206896551724138,
+                "F1_Score": 0.7659574468085107,
+                "False_Alarm_Rate": 0.029411764705882353
+            },
+            "status": "Oracle Upper Bound (Test Ground-Truth Optimized, Not Deployable)"
+        }
+    }
+}

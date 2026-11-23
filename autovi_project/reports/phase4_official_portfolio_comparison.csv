@@ -1,0 +1,8 @@
+category,is_frozen,target_auroc,config_A_baseline_auroc,config_B_roi_only_auroc,config_C_roi_coord_auroc,config_B_delta,config_C_delta,config_B_relative_error_reduction_pct,config_C_relative_error_reduction_pct,meets_target_config_B,meets_target_config_C
+pipe_clip,No,0.9500,0.8925,0.9271,0.9432,+0.0347,+0.0507,+32.2%,+47.1%,NO,NO
+pipe_staple,Yes,N/A (Frozen),0.9534,0.9534,0.9534,+0.0000,+0.0000,+0.0%,+0.0%,YES,YES
+engine_wiring,No,0.9200,0.8898,0.9017,0.9691,+0.0119,+0.0793,+10.8%,+72.0%,NO,YES
+tank_screw,No,0.9000,0.8281,0.9983,0.9998,+0.1702,+0.1717,+99.0%,+99.9%,YES,YES
+underbody_pipes,Yes,N/A (Frozen),0.9980,0.9980,0.9980,+0.0000,+0.0000,+0.0%,+0.0%,YES,YES
+underbody_screw,Yes,N/A (Frozen),0.9886,0.9886,0.9886,+0.0000,+0.0000,+0.0%,+0.0%,YES,YES
+OFFICIAL_PORTFOLIO_MACRO_AVERAGE,N/A,0.9500,0.9251,0.9612,0.9753,+0.0361,+0.0503,+48.2%,+67.1%,YES (PRIMARY TARGET ACHIEVED),YES (PRIMARY TARGET ACHIEVED)

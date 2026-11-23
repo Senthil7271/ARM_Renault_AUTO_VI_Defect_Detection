@@ -1,0 +1,49 @@
+# Python byte-code
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Large archive formats (>50 MB)
+*.zip
+*.tar.gz
+*.tar
+*.gz
+*.7z
+
+# Model weights & binary caches (>50 MB)
+*.onnx
+*.hef
+*.pte
+*.pkl
+*.pth
+*.pt
+*.npy
+*.npz
+*.bin
+
+# Datasets & image caches
+tank_screw/
+pipe_clip/
+pipe_staple/
+underbody_pipes/
+underbody_screw/
+engine_wiring/
+test_stream/
+external/
+
+# Mobile package & build directories
+autovi-mobile-package/
+autovi-edge-lab-update/
+autovi-edge/models/
+autovi_project/outputs/
+outputs/autovi-edge*
+outputs/autovi_test_stream*
+
+# IDE & Virtual Environments
+.venv/
+venv/
+.idea/
+.vscode/
+*.swp
+*.log

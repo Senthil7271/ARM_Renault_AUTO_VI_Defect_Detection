@@ -1,0 +1,154 @@
+{
+  "timestamp": "2026-11-15T19:00:00Z",
+  "frozen_models": {
+    "pipe_staple": {
+      "status": "VERIFIED_UNTOUCHED",
+      "sha256": "69e9e12ceb7fa4cfb999945abb064bf2d588d1a78154cf8c5f070097311169b3",
+      "threshold": 17.28337688446045,
+      "official_auroc": 0.9534
+    },
+    "underbody_pipes": {
+      "status": "VERIFIED_UNTOUCHED",
+      "sha256": "59cd8dfd4fd11135f38fa17c6e9c2b20507689c8025023d10fb036271875dffd",
+      "threshold": 21.336994171142575,
+      "official_auroc": 0.998
+    },
+    "underbody_screw": {
+      "status": "VERIFIED_UNTOUCHED",
+      "sha256": "231706b4c38bc279b988f78d9d20aa9e35799d22629b88b09727eaf7f5f012db",
+      "threshold": 14.44472885131836,
+      "official_auroc": 0.9886
+    }
+  },
+  "ablations": {
+    "tank_screw": {
+      "Ablation_A_Original_FullFrame": {
+        "pooled_auc": 0.8232793522267207,
+        "calibrated_threshold": 43792.4,
+        "tp": 37,
+        "fp": 39,
+        "tn": 247,
+        "fn": 58,
+        "recall": 0.3894736842105263,
+        "far": 0.13636363636363635,
+        "precision": 0.4868421052631579,
+        "specificity": 0.8636363636363636,
+        "f1": 0.43274853801169594,
+        "full_pooled_auc": 0.8280536246276067,
+        "official_subtype_mean": 0.8280536246276067
+      },
+      "Ablation_B1_Exploratory_Oracle_ROI": {
+        "pooled_auc": 0.9845785793154215,
+        "calibrated_threshold": 38287.5,
+        "tp": 94,
+        "fp": 16,
+        "tn": 270,
+        "fn": 1,
+        "recall": 0.9894736842105263,
+        "far": 0.055944055944055944,
+        "precision": 0.8545454545454545,
+        "specificity": 0.9440559440559441,
+        "f1": 0.9170731707317074,
+        "full_pooled_auc": 0.9842767295597483,
+        "official_subtype_mean": 0.9842767295597483
+      },
+      "Ablation_B2_Deployable_Normal_Only_ROI": {
+        "pooled_auc": 0.9992638940007361,
+        "calibrated_threshold": 37781.5,
+        "tp": 95,
+        "fp": 4,
+        "tn": 282,
+        "fn": 0,
+        "recall": 1.0,
+        "far": 0.013986013986013986,
+        "precision": 0.9595959595959596,
+        "specificity": 0.986013986013986,
+        "f1": 0.979381443298969,
+        "full_pooled_auc": 0.9982787156570672,
+        "official_subtype_mean": 0.9982787156570672
+      }
+    },
+    "pipe_clip": {
+      "Ablation_A_Original_FullFrame": {
+        "pooled_auc": 0.7882092555331992,
+        "calibrated_threshold": 50608.700000000004,
+        "tp": 21,
+        "fp": 17,
+        "tn": 158,
+        "fn": 121,
+        "recall": 0.14788732394366197,
+        "far": 0.09714285714285714,
+        "precision": 0.5526315789473685,
+        "specificity": 0.9028571428571428,
+        "f1": 0.23333333333333334,
+        "full_pooled_auc": 0.7863308053448899,
+        "official_subtype_mean": 0.8924077104928169,
+        "auc_unclipped": 0.7848154209856337,
+        "auc_operator": 1.0
+      },
+      "Ablation_B1_Exploratory_Oracle_ROI": {
+        "pooled_auc": 0.8722334004024145,
+        "calibrated_threshold": 50580.65,
+        "tp": 10,
+        "fp": 9,
+        "tn": 166,
+        "fn": 132,
+        "recall": 0.07042253521126761,
+        "far": 0.05142857142857143,
+        "precision": 0.5263157894736842,
+        "specificity": 0.9485714285714286,
+        "f1": 0.12422360248447205,
+        "full_pooled_auc": 0.8712531599855544,
+        "official_subtype_mean": 0.9224404437170395,
+        "auc_unclipped": 0.8705219130751045,
+        "auc_operator": 0.9743589743589743
+      },
+      "Ablation_B2_Deployable_Normal_Only_ROI": {
+        "pooled_auc": 0.8554124748490946,
+        "calibrated_threshold": 50586.55,
+        "tp": 12,
+        "fp": 9,
+        "tn": 166,
+        "fn": 130,
+        "recall": 0.08450704225352113,
+        "far": 0.05142857142857143,
+        "precision": 0.5714285714285714,
+        "specificity": 0.9485714285714286,
+        "f1": 0.147239263803681,
+        "full_pooled_auc": 0.8552184904297581,
+        "official_subtype_mean": 0.9270958356064739,
+        "auc_unclipped": 0.8541916712129478,
+        "auc_operator": 1.0
+      }
+    },
+    "engine_wiring": {
+      "Ablation_A_Original_FullFrame": {
+        "official_subtype_mean": 0.8897868366354021,
+        "subtype_aucs": {
+          "fastening": 0.7838305149154474,
+          "cardboard": 1.0,
+          "blue_hoop": 0.8617543859649123,
+          "multiple": 0.9577352472089314,
+          "obstruction": 0.8456140350877193
+        },
+        "tau_95": 41954.6
+      },
+      "Ablation_B2_Deployable_Normal_Only_ROI": {
+        "official_subtype_mean": 0.9016677740736263,
+        "subtype_aucs": {
+          "fastening": 0.789955031984293,
+          "cardboard": 1.0,
+          "blue_hoop": 0.8835087719298246,
+          "multiple": 0.9629452418926103,
+          "obstruction": 0.8719298245614036
+        },
+        "tau_95": 41954.6
+      }
+    }
+  },
+  "portfolio_macro": {
+    "baseline": 0.9250413619593042,
+    "deployable_normal_roi": 0.961173720889528,
+    "exploratory_oracle_roi": 0.9580641578917358
+  }
+}

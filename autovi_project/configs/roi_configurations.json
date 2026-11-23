@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "timestamp": "2026-11-15T19:00:00Z",
+  "description": "Component Region-of-Interest bounding envelopes for AutoVI active categories",
+  "categories": {
+    "tank_screw": {
+      "exploratory_oracle_roi": {
+        "box": [
+          0.25,
+          0.65,
+          0.55,
+          0.95
+        ],
+        "provenance": "Exploratory. Bounded using ground-truth defect centroids (Y~310, X~797).",
+        "is_deployable": false,
+        "is_exploratory": true
+      },
+      "deployable_normal_only_roi": {
+        "box": [
+          0.28,
+          0.72,
+          0.5,
+          0.88
+        ],
+        "provenance": "Deployable. Derived strictly from tank_screw/train/good (N=318) via template matching on nominal screw mounting boss. Zero test defects or test masks accessed.",
+        "is_deployable": true,
+        "is_exploratory": false
+      }
+    },
+    "pipe_clip": {
+      "exploratory_oracle_roi": {
+        "box": [
+          0.2,
+          0.2,
+          0.85,
+          0.85
+        ],
+        "provenance": "Exploratory. Morphological envelope cross-referenced with unclipped latch ground-truth masks.",
+        "is_deployable": false,
+        "is_exploratory": true
+      },
+      "deployable_normal_only_roi": {
+        "box": [
+          0.15,
+          0.22,
+          0.88,
+          0.95
+        ],
+        "provenance": "Deployable. Derived strictly from pipe_clip/train/good (N=195) foreground component bounding box under Otsu variance. Zero test defect annotations used.",
+        "is_deployable": true,
+        "is_exploratory": false
+      }
+    },
+    "engine_wiring": {
+      "exploratory_oracle_roi": {
+        "box": [
+          0.4,
+          0.35,
+          0.85,
+          0.8
+        ],
+        "provenance": "Exploratory. Bounded around fastening defect ground-truth cluster (Y~252, X~226).",
+        "is_deployable": false,
+        "is_exploratory": true
+      },
+      "deployable_normal_only_roi": {
+        "box": [
+          0.25,
+          0.15,
+          0.95,
+          0.95
+        ],
+        "provenance": "Deployable. Complete corrugated harness routing envelope derived from engine_wiring/train/good (N=285). Zero test masks accessed.",
+        "is_deployable": true,
+        "is_exploratory": false
+      }
+    }
+  }
+}

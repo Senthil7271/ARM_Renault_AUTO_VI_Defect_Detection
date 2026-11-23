@@ -1,0 +1,122 @@
+{
+    "tank_screw": {
+        "config_A_baseline": {
+            "pixel_tau_p90": 27907.0,
+            "pixel_tau_p95": 29565.0,
+            "pixel_tau_p98": 32018.0,
+            "pixel_tau_p99": 34039.0,
+            "pixel_tau_p995": 36204.0,
+            "pixel_max_normal": 47425.0,
+            "sample_images_evaluated": 30
+        },
+        "config_C_roi_coord": {
+            "pixel_tau_p90": 0.0,
+            "pixel_tau_p95": 0.0,
+            "pixel_tau_p98": 19798.0,
+            "pixel_tau_p99": 23082.0,
+            "pixel_tau_p995": 25641.0,
+            "pixel_max_normal": 35533.0,
+            "sample_images_evaluated": 30
+        }
+    },
+    "pipe_clip": {
+        "config_A_baseline": {
+            "pixel_tau_p90": 35049.0,
+            "pixel_tau_p95": 36951.0,
+            "pixel_tau_p98": 39493.0,
+            "pixel_tau_p99": 41529.0,
+            "pixel_tau_p995": 43278.0,
+            "pixel_max_normal": 56284.0,
+            "sample_images_evaluated": 30
+        },
+        "config_C_roi_coord": {
+            "pixel_tau_p90": 30327.0,
+            "pixel_tau_p95": 32185.0,
+            "pixel_tau_p98": 34436.01999999955,
+            "pixel_tau_p99": 36117.0,
+            "pixel_tau_p995": 37624.00499999989,
+            "pixel_max_normal": 48306.0,
+            "sample_images_evaluated": 30
+        }
+    },
+    "engine_wiring": {
+        "config_A_baseline": {
+            "pixel_tau_p90": 32887.0,
+            "pixel_tau_p95": 34351.0,
+            "pixel_tau_p98": 35976.0,
+            "pixel_tau_p99": 37154.0,
+            "pixel_tau_p995": 38390.0,
+            "pixel_max_normal": 42769.0,
+            "sample_images_evaluated": 30
+        },
+        "config_C_roi_coord": {
+            "pixel_tau_p90": 28952.0,
+            "pixel_tau_p95": 30473.0,
+            "pixel_tau_p98": 32094.0,
+            "pixel_tau_p99": 33133.0,
+            "pixel_tau_p995": 34102.0,
+            "pixel_max_normal": 39857.0,
+            "sample_images_evaluated": 30
+        }
+    },
+    "pipe_staple": {
+        "config_A_baseline": {
+            "pixel_tau_p90": 25209.0,
+            "pixel_tau_p95": 26998.0,
+            "pixel_tau_p98": 29615.0,
+            "pixel_tau_p99": 32073.0,
+            "pixel_tau_p995": 35690.0,
+            "pixel_max_normal": 47086.0,
+            "sample_images_evaluated": 30
+        },
+        "config_C_roi_coord": {
+            "pixel_tau_p90": 25209.0,
+            "pixel_tau_p95": 26998.0,
+            "pixel_tau_p98": 29615.0,
+            "pixel_tau_p99": 32073.0,
+            "pixel_tau_p995": 35690.0,
+            "pixel_max_normal": 47086.0,
+            "sample_images_evaluated": 30
+        }
+    },
+    "underbody_pipes": {
+        "config_A_baseline": {
+            "pixel_tau_p90": 22224.0,
+            "pixel_tau_p95": 24546.0,
+            "pixel_tau_p98": 28775.0,
+            "pixel_tau_p99": 32050.0,
+            "pixel_tau_p995": 34365.0,
+            "pixel_max_normal": 43329.0,
+            "sample_images_evaluated": 30
+        },
+        "config_C_roi_coord": {
+            "pixel_tau_p90": 22224.0,
+            "pixel_tau_p95": 24546.0,
+            "pixel_tau_p98": 28775.0,
+            "pixel_tau_p99": 32050.0,
+            "pixel_tau_p995": 34365.0,
+            "pixel_max_normal": 43329.0,
+            "sample_images_evaluated": 30
+        }
+    },
+    "underbody_screw": {
+        "config_A_baseline": {
+            "pixel_tau_p90": 24718.0,
+            "pixel_tau_p95": 26223.0,
+            "pixel_tau_p98": 28210.0,
+            "pixel_tau_p99": 29599.0,
+            "pixel_tau_p995": 30985.0,
+            "pixel_max_normal": 36765.0,
+            "sample_images_evaluated": 30
+        },
+        "config_C_roi_coord": {
+            "pixel_tau_p90": 24718.0,
+            "pixel_tau_p95": 26223.0,
+            "pixel_tau_p98": 28210.0,
+            "pixel_tau_p99": 29599.0,
+            "pixel_tau_p995": 30985.0,
+            "pixel_max_normal": 36765.0,
+            "sample_images_evaluated": 30
+        }
+    }
+}

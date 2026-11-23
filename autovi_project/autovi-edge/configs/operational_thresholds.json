@@ -1,0 +1,38 @@
+{
+  "tank_screw": {
+    "calibrated_threshold": 17.637,
+    "review_threshold": 14.9914,
+    "memory_bank_coreset_size": 14643,
+    "feature_dimension": 1536
+  },
+  "pipe_clip": {
+    "calibrated_threshold": 18.9086,
+    "review_threshold": 16.0723,
+    "memory_bank_coreset_size": 8960,
+    "feature_dimension": 1536
+  },
+  "engine_wiring": {
+    "calibrated_threshold": 21.5754,
+    "review_threshold": 18.3391,
+    "memory_bank_coreset_size": 13107,
+    "feature_dimension": 1536
+  },
+  "pipe_staple": {
+    "calibrated_threshold": 17.2834,
+    "review_threshold": 14.6909,
+    "memory_bank_coreset_size": 8755,
+    "feature_dimension": 1536
+  },
+  "underbody_pipes": {
+    "calibrated_threshold": 21.337,
+    "review_threshold": 18.1364,
+    "memory_bank_coreset_size": 7372,
+    "feature_dimension": 1536
+  },
+  "underbody_screw": {
+    "calibrated_threshold": 14.4447,
+    "review_threshold": 12.278,
+    "memory_bank_coreset_size": 17152,
+    "feature_dimension": 1536
+  }
+}

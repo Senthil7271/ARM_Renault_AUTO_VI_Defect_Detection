@@ -1,0 +1,158 @@
+{
+    "pipe_clip": {
+        "category": "pipe_clip",
+        "backbone": "wide_resnet50_2",
+        "feature_dim": 1536,
+        "model_load_time_s": 0.9260140999995201,
+        "memory_bank_size": [
+            8960,
+            1536
+        ],
+        "num_evaluated_samples": 50,
+        "latency_ms": {
+            "mean": 465.25697199995193,
+            "std": 21.235621489946844,
+            "p50_median": 464.45665000010194,
+            "p90": 491.5395500007435,
+            "p95": 498.088579999785,
+            "p99": 509.07881199991607
+        },
+        "breakdown_ms": {
+            "load_and_preprocess": 12.775072000149521,
+            "wideresnet50_2_forward": 174.16868400003295,
+            "nn_memory_search": 275.3513039999234,
+            "map_reconstruction": 2.9543559999001445
+        },
+        "throughput_fps": 2.149349843595903
+    },
+    "pipe_staple": {
+        "category": "pipe_staple",
+        "backbone": "wide_resnet50_2",
+        "feature_dim": 1536,
+        "model_load_time_s": 0.910621799999717,
+        "memory_bank_size": [
+            8755,
+            1536
+        ],
+        "num_evaluated_samples": 50,
+        "latency_ms": {
+            "mean": 465.1454160001231,
+            "std": 25.55700142801011,
+            "p50_median": 463.60904999983177,
+            "p90": 502.4097700004859,
+            "p95": 510.0472000000991,
+            "p99": 524.9589830000696
+        },
+        "breakdown_ms": {
+            "load_and_preprocess": 11.080642000088119,
+            "wideresnet50_2_forward": 172.2570540002198,
+            "nn_memory_search": 278.9954860000944,
+            "map_reconstruction": 2.8041299999313196
+        },
+        "throughput_fps": 2.1498653229761926
+    },
+    "engine_wiring": {
+        "category": "engine_wiring",
+        "backbone": "wide_resnet50_2",
+        "feature_dim": 1536,
+        "model_load_time_s": 1.0202531999984785,
+        "memory_bank_size": [
+            13107,
+            1536
+        ],
+        "num_evaluated_samples": 50,
+        "latency_ms": {
+            "mean": 530.8834299999944,
+            "std": 18.943836528198304,
+            "p50_median": 528.2042500002717,
+            "p90": 554.1992300000857,
+            "p95": 561.3440100002663,
+            "p99": 569.2299860006824
+        },
+        "breakdown_ms": {
+            "load_and_preprocess": 7.001864000085334,
+            "wideresnet50_2_forward": 173.47545199998422,
+            "nn_memory_search": 347.68151600004785,
+            "map_reconstruction": 2.7166739998574485
+        },
+        "throughput_fps": 1.8836526881240399
+    },
+    "tank_screw": {
+        "category": "tank_screw",
+        "backbone": "wide_resnet50_2",
+        "feature_dim": 1536,
+        "model_load_time_s": 0.9646324999994249,
+        "memory_bank_size": [
+            14643,
+            1536
+        ],
+        "num_evaluated_samples": 50,
+        "latency_ms": {
+            "mean": 589.5187499999156,
+            "std": 30.548672572564133,
+            "p50_median": 584.3402500004231,
+            "p90": 633.2847999994556,
+            "p95": 641.625390000263,
+            "p99": 664.8072459996183
+        },
+        "breakdown_ms": {
+            "load_and_preprocess": 23.789571999986947,
+            "wideresnet50_2_forward": 167.52991800000018,
+            "nn_memory_search": 395.186458000062,
+            "map_reconstruction": 3.0048559998977
+        },
+        "throughput_fps": 1.6962988878642844
+    },
+    "underbody_pipes": {
+        "category": "underbody_pipes",
+        "backbone": "wide_resnet50_2",
+        "feature_dim": 1536,
+        "model_load_time_s": 0.8359264999999141,
+        "memory_bank_size": [
+            7372,
+            1536
+        ],
+        "num_evaluated_samples": 50,
+        "latency_ms": {
+            "mean": 441.82708799988177,
+            "std": 25.775262874337542,
+            "p50_median": 438.7861499990322,
+            "p90": 474.03451000027417,
+            "p95": 485.51868000040486,
+            "p99": 501.4430369998081
+        },
+        "breakdown_ms": {
+            "load_and_preprocess": 26.097653999859176,
+            "wideresnet50_2_forward": 169.2400640001506,
+            "nn_memory_search": 243.55743999993138,
+            "map_reconstruction": 2.9235819998575607
+        },
+        "throughput_fps": 2.2633288613582416
+    },
+    "underbody_screw": {
+        "category": "underbody_screw",
+        "backbone": "wide_resnet50_2",
+        "feature_dim": 1536,
+        "model_load_time_s": 0.9750724999994418,
+        "memory_bank_size": [
+            17152,
+            1536
+        ],
+        "num_evaluated_samples": 50,
+        "latency_ms": {
+            "mean": 640.9361439998247,
+            "std": 31.963924505945847,
+            "p50_median": 637.0515500002512,
+            "p90": 674.327170000106,
+            "p95": 697.4028450000333,
+            "p99": 736.432065999379
+        },
+        "breakdown_ms": {
+            "load_and_preprocess": 29.6831539998675,
+            "wideresnet50_2_forward": 175.16614399999526,
+            "nn_memory_search": 433.15737799995986,
+            "map_reconstruction": 2.9213399999935064
+        },
+        "throughput_fps": 1.560217830374493
+    }
+}

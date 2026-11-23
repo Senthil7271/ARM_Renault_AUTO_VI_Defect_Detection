@@ -1,0 +1,23 @@
+{
+  "primary_model": {
+    "path": "models\\onnx\\wideresnet50_patchcore.onnx",
+    "sha256": "f802d09f500cdaa1a07dea0d63dc3018c633e8a7303f0e7a6841b657eac3f1b6",
+    "size_mb": 94.95,
+    "opset": 18,
+    "format": "Single self-contained file (no external .data)",
+    "input": "input: float32[batch_size, 3, 256, 256]",
+    "output": "patch_features: float32[batch_size, 1536, 32, 32]"
+  },
+  "multiscale_model": {
+    "path": "models\\onnx\\wideresnet50_multiscale.onnx",
+    "sha256": "9c375587b627198df1041e4e98d769cc1e13786e5aac00c7a1ebe77218b47e12",
+    "size_mb": 94.95,
+    "opset": 18,
+    "format": "Single self-contained file (no external .data)",
+    "input": "input: float32[batch_size, 3, 256, 256]",
+    "outputs": [
+      "layer2_pooled: float32[batch_size, 512, 32, 32]",
+      "layer3_pooled: float32[batch_size, 1024, 16, 16]"
+    ]
+  }
+}

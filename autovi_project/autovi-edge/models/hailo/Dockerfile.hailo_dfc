@@ -1,0 +1,43 @@
+# Dockerfile for Reproducible Hailo Dataflow Compiler (DFC) Environment
+# Target Architecture: Hailo-8 (26 TOPS) for Raspberry Pi AI HAT+
+# Base OS: Ubuntu 22.04 LTS (x86_64)
+
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONUNBUFFERED=1
+
+# Install System Prerequisites
+RUN apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
+    python3-dev \
+    graphviz \
+    libgraphviz-dev \
+    git \
+    wget \
+    curl \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /workspace
+
+# Install Python Base Dependencies
+RUN pip3 install --upgrade pip
+RUN pip3 install \
+    numpy==1.23.5 \
+    scipy>=1.10.0 \
+    onnx==1.14.0 \
+    onnxruntime==1.15.1 \
+    opencv-python-headless \
+    pillow
+
+# Note: Hailo Dataflow Compiler (DFC) wheel (hailo_dataflow_compiler-3.28.0-py3-none-linux_x86_64.whl)
+# is downloaded from Hailo Developer Zone (https://hailo.ai/developer-zone/software-downloads/)
+# Place the wheel in this directory before building, or mount it at runtime:
+# RUN pip3 install /workspace/hailo_dataflow_compiler-3.28.0-py3-none-linux_x86_64.whl
+
+COPY compile_hef.sh /workspace/compile_hef.sh
+RUN chmod +x /workspace/compile_hef.sh
+
+ENTRYPOINT ["/workspace/compile_hef.sh"]
