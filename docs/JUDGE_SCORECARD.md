@@ -4,7 +4,7 @@
 **Track:** Edge AI & Vision / Robotics  
 **Project:** AutoVI Industrial Quality Control Edge Station  
 **Submitter:** Senthil ([@Senthil7271](https://github.com/Senthil7271))  
-**Repository:** [https://github.com/Senthil7271/ArmChallenge](https://github.com/Senthil7271/ArmChallenge)  
+**Repository:** [https://github.com/Senthil7271/ARM_Renault_AUTO_VI_Defect_Detection](https://github.com/Senthil7271/ARM_Renault_AUTO_VI_Defect_Detection)  
 
 ---
 

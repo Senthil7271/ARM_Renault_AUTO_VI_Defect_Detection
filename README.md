@@ -56,8 +56,8 @@ Full empirical evidence: [`SUBMISSION.md`](SUBMISSION.md) for criteria mapping; 
 
 ```bash
 # 1. Clone repository and install dependencies
-git clone https://github.com/Senthil7271/ArmChallenge.git
-cd ArmChallenge
+git clone https://github.com/Senthil7271/ARM_Renault_AUTO_VI_Defect_Detection.git
+cd ARM_Renault_AUTO_VI_Defect_Detection
 pip install -r requirements.txt
 
 # 2. Run automated validation test suite
