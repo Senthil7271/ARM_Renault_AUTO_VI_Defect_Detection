@@ -126,8 +126,8 @@ Meta ExecuTorch Edge Advisory ──────────► [LLaMA-3.2-1B Ar
 | **[`docs/DATASET_AUDIT.md`](docs/DATASET_AUDIT.md)** | Full audit of 6 Renault categories: polygon mask fusion, non-square aspect ratios, and the 60 duplicate leakage discovery. |
 | **[`docs/EXECUTORCH_ADVISOR.md`](docs/EXECUTORCH_ADVISOR.md)** | Edge generative advisory architecture: Meta LLaMA-3.2-1B deployment on Arm Cortex-A76 with ExecuTorch NEON kernels. |
 | **[`docs/MOBILE_DEPLOYMENT.md`](docs/MOBILE_DEPLOYMENT.md)** | Android Termux and CameraX / ONNX Runtime Mobile standalone package for assembly line auditors. |
-| **[`outputs/AutoVI_IEEE_Report_25Pages.pdf`](outputs/AutoVI_IEEE_Report_25Pages.pdf)** | Formal 25-page IEEE double-column technical report with complete mathematical derivations and figures. |
-| **[`AutoVI_IEEE_Report_25Pages.docx`](AutoVI_IEEE_Report_25Pages.docx)** | Editable 25-page Microsoft Word edition of the complete IEEE technical report. |
+| **[`outputs/AutoVI_IEEE_Report_Pages.pdf`](outputs/AutoVI_IEEE_Report_Pages.pdf)** | Formal 25-page IEEE double-column technical report with complete mathematical derivations and figures. |
+
 
 ---
 
