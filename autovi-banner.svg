@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="AutoVI Industrial QC — Manufacturing and Industry 4.0">
+<defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#071522"/><stop offset="1" stop-color="#07334a"/></linearGradient>
+<pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#72b6d0" stroke-opacity=".09"/></pattern>
+<clipPath id="ticker"><rect x="32" y="139" width="1136" height="54" rx="8"/></clipPath>
+</defs>
+<rect width="1200" height="300" rx="16" fill="url(#bg)"/><rect width="1200" height="300" rx="16" fill="url(#grid)"/>
+<path d="M0 0H105L0 105Z M1200 300H1095L1200 195Z" fill="#b4f105"/>
+<g fill="none" stroke="#47b8d2" opacity=".35" stroke-width="2"><path d="M0 220H100L140 260H300 M0 236H75L115 276H260 M1200 80H1100L1060 40H970 M1200 96H1125L1085 56H990"/><circle cx="300" cy="260" r="4"/><circle cx="260" cy="276" r="4"/><circle cx="970" cy="40" r="4"/></g>
+<g font-family="Arial, Helvetica, sans-serif" text-anchor="middle"><text x="600" y="35" fill="#a9c6d6" font-size="16" letter-spacing="2">BHARAT AI-SOC CHALLENGE 2026–27  •  PS5</text>
+<text x="600" y="102" font-size="58" font-weight="800" fill="#ffffff">Auto<tspan fill="#b4f105">VI</tspan> Industrial QC</text>
+<text x="600" y="127" fill="#b4f105" font-size="14" letter-spacing="3">MANUFACTURING &amp; INDUSTRY 4.0</text>
+<rect x="32" y="139" width="1136" height="54" rx="8" fill="#06131e" stroke="#246078"/>
+<g clip-path="url(#ticker)" text-anchor="start" font-size="24" font-weight="700" fill="#edf7ff"><g><animateTransform attributeName="transform" type="translate" from="0 0" to="-1136 0" dur="13s" repeatCount="indefinite"/><text x="80" y="174">Real-Time Industrial Defect Detection &amp; Quality-Control Assistant</text><circle cx="1070" cy="166" r="5" fill="#b4f105"/><text x="1216" y="174">Real-Time Industrial Defect Detection &amp; Quality-Control Assistant</text><circle cx="2206" cy="166" r="5" fill="#b4f105"/></g></g>
+<text x="600" y="224" fill="#d7e9f2" font-size="17" letter-spacing="1">ARM  •  HAILO-8  •  PATCHCORE  •  LLAMA 3.2  •  EXECUTORCH</text>
+<text x="600" y="258" fill="#b4f105" font-size="13" letter-spacing="2">EDGE AI  /  AUTOMOTIVE INSPECTION  /  ON-DEVICE REASONING</text></g>
+</svg>
