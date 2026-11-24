@@ -1,4 +1,6 @@
-# AutoVI Industrial QC
+<p align="center">
+  <img src="./autovi-banner.svg" width="100%" alt="AutoVI Industrial QC"/>
+</p>
 
 Offline edge visual inspection and generative root-cause advisory for automotive manufacturing. Everything — camera acquisition, feature extraction, anomaly localization, and cognitive defect disposition — runs on the edge station. The system requires no cloud connection during inline production.
 
