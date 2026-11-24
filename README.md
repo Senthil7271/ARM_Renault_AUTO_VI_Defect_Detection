@@ -85,32 +85,12 @@ All required edge binaries and memory bank coresets are bundled or reproducible 
 
 ---
 
-## Architecture
 
-```
-Industrial Camera / Pipeline Stream (256x256 RGB)
-        │
-        ▼
-Arm Cortex-A76 Preprocessor ────────────► [OpenCV NEON Resize & Normalization: 2.76 ms]
-        │
-        ▼
-Hailo-8 NPU Coprocessor (26 TOPS) ──────► [WideResNet-50-2 INT8 Layers 2+3: 5.22 ms]
-        │ (1,536-dim patch representations)
-        ▼
-Arm Cortex-A76 NEON k-NN Engine ────────► [Vectorized Minimax Distance vs Coreset: 1.20 ms]
-        │
-        ├───────────────────────────────────────┐
-        ▼                                       ▼
-Anomaly Scoring & Threshold Gate         Gaussian Heatmap & HUD Render
-  Score < τ ──► [PASS / Green TFT]        Pixel-level defect bounding box
-  Score ≥ τ ──► [REJECT / Red Alarm]      [TFT LCD Display Update: <12 ms]
-        │
-        ▼ (On Defect Trigger)
-Meta ExecuTorch Edge Advisory ──────────► [LLaMA-3.2-1B Arm NEON Kernels: 1.84 s]
-                                          Outputs: 1. Root Cause Analysis (RCA)
-                                                   2. Standard Operating Procedure (SOP)
-                                                   3. Disposition (SCRAP / REWORK / HOLD)
-```
+## System Architecture
+
+<p align="center">
+  <img src="./autovi-architecture.svg" width="100%" alt="AutoVI System Architecture"/>
+</p>
 
 ---
 
